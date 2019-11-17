@@ -1,0 +1,28 @@
+.collection-item{
+
+    @media (min-width: 768px){
+        
+  }
+    & .collection-item-img{
+        height: 280px;
+       display: block;
+       @media (min-width: 600px){
+        height: 320px;
+    }
+    @media (min-width:768px){
+        height: 220px;
+    }
+
+    @media (min-width:992px){
+        height: 370px;
+    }
+    
+
+       & img{
+        width:100%;
+        height:100%;
+
+
+       }
+    }
+}

@@ -1,0 +1,97 @@
+ .detail-item-body{
+
+    & .detail-item-price{
+        margin: 2.5rem 0;
+    }
+
+
+    & .detail-item-size-container{
+        margin: 1rem 0;
+
+        & .detail-item-size-options{
+            width: 100%;
+             & .detail-item-size-option{
+                 & span{
+                     border-color: #777;
+                     border-style: solid;
+                     border-width: 1px;
+                     display: block;
+                    
+                    width:  4rem;
+                     line-height: 3rem;
+                     margin: 0 auto;
+                   
+                     text-align: center;
+                      
+                     font-weight: bold;
+                     color: #333;
+                     cursor: pointer;
+                    
+                     &:hover{
+                        background: #757575;
+                        color:white;
+                     }
+
+                    &.active{
+                        background: #757575;
+                        color: white;
+                    } 
+                 }
+             }
+ 
+         }
+    }
+
+  
+
+    & .size-chart{
+  
+        font-size: 1.3rem;
+         display: inline-block;
+         line-height: 1 ;
+         text-align: center;
+         border: 1px solid #333;
+         padding: 5px;
+         margin: 1rem 0;
+    }
+
+    & .quantity-text-container{
+        margin-top: .5rem;
+        margin-bottom: 3rem;
+        & .quantity-text{
+            display: inline-block;
+            width: 15%;
+        }
+
+        & .quantity{
+            padding: .5rem 1rem;
+           
+        }
+
+    }
+    
+   
+
+ 
+
+    & .note{
+        color: #D70000;
+    }
+
+    & .add-to-bag{
+        padding-left:0;
+        padding-right: 0;
+        background-color: #333;
+        color: white !important;
+        width: 100%;
+        font-size: 24px !important;
+        font-weight: bold;
+        padding: 1rem;
+        margin-bottom: 0;
+
+        &:disabled{
+            opacity: 0.5;
+            cursor: auto;
+          }  
+    }
+}

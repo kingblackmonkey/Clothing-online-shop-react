@@ -1,0 +1,89 @@
+
+html{
+  font-size: 62.5%;
+}
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: $normal-size;
+    // background: $offWhite;
+  overflow-x: hidden;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+
+  button, input{
+    font-size: $normal-size !important;
+  }
+
+  // .active{
+  //   color: #59d113  !important;
+  // }
+
+  a{
+    color: black;
+  }
+  
+  .medium-font-size{
+    font-size: $md-size !important;
+  }
+
+  .normal-font-size{
+    font-size: $normal-size !important; 
+  }
+
+  
+  .big-container {
+    height: 100vh;
+    padding: 10rem 0;
+    background: #3CA55C;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #B5AC49, #3CA55C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  }
+
+  .navbar-light .navbar-toggler {
+ border-color: rgba(49, 222, 54, 1) !important;
+   color: white !important;
+  
+  }
+
+  .navbar-toggler:focus, .navbar-toggler:active {
+  outline: none;
+    box-shadow: none;
+    
+  }
+  
+  .navbar-light .navbar-toggler-icon {
+  
+    background-image: 
+    url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(49, 222, 54, 1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+  color: white;
+  
+  }
+
+ img{
+    display: block;
+    //  height: 100% !important;
+    //  width: 100% !important;
+ 
+   }

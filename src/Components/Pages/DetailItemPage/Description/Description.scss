@@ -1,0 +1,85 @@
+
+@mixin default-detail-brand{
+    background-image: url("/img/imagesForOnlineShop/champBrand/champ.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 15rem;
+    height: 5rem;
+    margin-bottom: 1rem;
+  }
+
+.detail{
+    & .detail-content{
+       border-top: 1px solid #ccc;
+       border-bottom: 1px solid #ccc; 
+       margin-bottom: 1.5rem;
+       margin-top: 1.5rem;
+       padding: 1rem 0;
+            & .detail-header::after{
+                content: "\002B";
+                font-size: 2.5rem;
+                
+
+            }
+
+            & .detail-header.active::after{
+                content: "\2212";
+            }
+
+            & .detail-header{
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+                align-items: center;
+            }
+
+            & .detail-text{
+                overflow: hidden;
+                max-height: 0;
+                transition: all .2s linear;
+
+                &.active{
+                min-height:  10rem;
+                }
+
+                & p{
+                    line-height: 2.5rem;
+                   font-size: 1.3rem;
+                }
+            }
+    }
+
+
+    & .icon {
+        @media (min-width: 768px){
+            display: none;
+         }
+        & .social-icon{
+                width: 20px;
+            height: 18px;
+            margin-right:5px ;
+            font-size: 1.5rem;
+            padding: 14px;
+            background-color: #666;
+            color: #e0e0e0;
+            border-radius: 50%;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        
+    }
+
+    & .detail-brand-small-screen{
+        
+        @include default-detail-brand;
+        @media (min-width: 768px){
+           display: none;
+        }
+    
+    }
+
+
+}

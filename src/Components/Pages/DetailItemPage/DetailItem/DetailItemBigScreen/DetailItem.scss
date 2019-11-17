@@ -1,0 +1,36 @@
+.detail-item{
+
+    & .detail-item-header{
+        & .detail-brand-big-screen{
+        background-image: url("/img/imagesForOnlineShop/champBrand/champ.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 15rem;
+        height: 5rem;
+        margin-bottom: -1rem;
+       
+        margin-left: -1rem;
+       }
+
+       & .detail-link-to-brand{
+
+       }
+
+       & .detail-item-title{
+
+       }
+
+    }
+
+ 
+
+
+    & .detail-item-bottom{
+        padding-top: 2rem;
+    }
+
+
+}
+
+

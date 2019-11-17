@@ -1,0 +1,141 @@
+.main-navbar{
+    position: relative;
+
+
+    & .top-bar{
+        background: black;
+    }
+
+    & .middle-bar{
+            position: relative;
+        & .logo{
+            text-align: center;
+            @media (min-width: 576px){
+                text-align: left;
+            }
+        & h1{
+            @media (min-width: 768px){
+                padding-left: 6rem;
+            }
+        }    
+            
+        }
+
+        & .sign-in{
+            display: none;
+            @media (min-width: 992px){
+                display: inline-block;
+          }
+        }
+
+        & .bag-icon-container{
+            cursor: pointer;
+           position: relative;
+           display: inline-block;
+          
+           top: -2rem;
+           
+           &::before{
+               content: '';
+              min-height: 20px;
+              min-width: 20px;
+              display: block;
+           }
+       
+           @media (min-width: 768px){
+            top: 0rem;
+            }
+
+          
+
+            & .bag-number, & .bag-icon{
+                position: absolute;
+                top: 50%;
+                left:50% ;
+                transform: translate(-50%,-50%);
+            }
+
+            & .bag-icon{
+                width: 25px;
+                
+            }
+
+            & .bag-number{
+                font-size: 12px;
+               display: inline-block;
+            
+                padding-top: 7px;
+                padding-right: 1px;
+               
+            }
+
+
+
+        }
+
+      
+    }
+
+    & .bottom-bar{
+        position: absolute;
+        top:3rem;
+       
+        @media (min-width: 992px){
+            align-items: center; 
+            position: relative;
+            top:0;
+        }
+        & .sign-in{
+             @media (min-width: 992px){
+              display: none;
+             }
+             
+        }
+     & .navbar-collapse.collapse   {
+        color:white;
+                 display: inline-block;   
+                 height: 0;
+                transform: translateX(-15rem);
+                left: -15rem;
+                transition: all .2s linear;
+                @media (min-width: 992px){
+                    transform: translateX(0);
+                    height: auto;
+                   }
+         &.show{
+            background: #eceaeb;
+   
+              height: 92vh;
+              width: 70vw;
+              transform: translateX(-1rem);
+              z-index: 9999;
+              @media (min-width: 992px){
+                transform: translateX(0);
+                height: auto;
+                width: auto;
+                background: none;
+               } 
+                
+         } 
+         
+      & .navbar-nav  {
+       
+          @media (min-width: 992px){
+            margin: 0 auto;
+          
+           }
+
+           & a{
+               color:black;
+           }
+      }
+     }
+
+
+   
+
+  
+        
+    }
+
+}

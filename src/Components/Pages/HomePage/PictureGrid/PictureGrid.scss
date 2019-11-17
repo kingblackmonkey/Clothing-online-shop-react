@@ -1,0 +1,117 @@
+.picture-grid-container{
+    & .picture-grid-one {
+       
+            & .picture-grid-item{
+               height: 40rem;
+               position: relative;
+                overflow: hidden;
+                
+                @media (min-width: 768px){
+                    height: 60rem;
+                
+              }
+
+              @media (min-width: 1200px){
+                height: 75rem;
+            
+            }            
+           
+            }
+    }
+
+    & .picture-grid-two{
+        background-color: #e6e6e6;
+
+
+        & .picture-grid-item-first,  .picture-grid-item-second{
+            position: relative;
+            height: 15rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+         
+
+            @media (min-width: 768px){
+                height: 32rem;
+            
+          }
+
+          @media (min-width: 1200px){
+            height: 37rem;
+        
+            }      
+        }
+
+        & .picture-grid-item-first{
+
+            background-image: url('/img/img-store-front/brooke-cagle-KsBkeh3y4XM-unsplash.jpg');
+            padding: .2rem .7rem;
+            font-size: 1.2rem;
+            &  .button{
+                padding: .2rem .7rem;
+                @media (min-width: 768px){
+                    padding: .2rem 1rem;
+                    font-size: 1.6rem;
+              }
+            }
+            
+           
+        } 
+       
+        & .picture-grid-item-second{
+            background-image: url('/img/img-store-front/vince-fleming-9PIfZHcnrjQ-unsplash.jpg');
+            padding: .2rem .7rem;
+            font-size: 1.2rem;
+            &  .button{
+                padding: .2rem .7rem;
+                @media (min-width: 768px){
+                    padding: .2rem 1rem;
+                    font-size: 1.6rem;
+                
+              }
+            }
+        } 
+    }
+
+    & .picture-grid-three{
+       
+        & .picture-grid-item{
+            
+            background-image: url('/img/img-store-front/store.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 15rem;
+            @media (min-width: 768px){
+                height: 25rem;
+            
+          }
+
+         
+        }
+    }
+
+
+   
+
+    & img{
+        
+        @media (min-width: 768px){
+            height: 100%;
+            width: 100%;
+      }
+
+        @media (min-width: 1200px){
+            height: auto;
+        
+        }
+    }
+
+    & a{
+        position: absolute;
+        top: 87%;
+        left:50%;
+        transform: translateX(-50%);
+    }
+}

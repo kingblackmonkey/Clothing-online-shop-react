@@ -1,0 +1,108 @@
+.mini-cart{
+   visibility: hidden;
+    opacity: 0;
+    width: 45rem;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 5rem;
+    right:0;
+    z-index: 999;
+    background: #ffffff;
+    transition: all .2s linear;
+    &.active{
+        visibility: visible;
+        opacity: 1;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        top: -21px;
+        left: 92%;
+        z-index: 9999;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        visibility: visible;
+        opacity: 0;
+        transform: translateX(-50%);
+        border-width: 4px 10px 17px 10px;
+        border-color: transparent transparent #cdcdcd transparent;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: -14px;
+        left: 92%;
+        z-index: 9999;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        
+        opacity: 0;
+        transform: translateX(-50%);
+        border-width: 0 9px 15px 9px;
+        border-color: transparent transparent #ffffff transparent;
+        visibility: visible;
+        opacity: 1;
+    }
+
+
+    & .mini-cart-header{
+        padding: 1.5rem 0;
+    }
+
+    & .mini-cart-body-wrapper{
+        max-height: 380px;
+        overflow-y: scroll;
+       
+        & .mini-cart-body{
+        border-bottom: 1px solid #ccc;
+        margin: 0 1.3rem;
+        & .mini-cart-body-title{
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #757575;
+        }
+
+        & .mini-cart-body-detail{
+            font-size: 1.2rem;
+        }
+      }
+    }
+
+
+
+    & .mini-cart-bottom{
+        padding: 1.5rem 0rem 1rem 0rem ;
+       
+        margin: 0 1rem;
+
+        & h5{
+            padding: 16px 0;
+            color: #333;
+            margin: 0 0 1em 0;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1.4rem;
+            text-align: center;
+            background-color: #fde29b;
+        }
+
+        & .checkout{
+            padding: 20px 0;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            color: #fff;
+            background-color: #333;
+            border-color: #333;
+            display: block;
+            width: 100%;
+        }
+    }
+
+}
+

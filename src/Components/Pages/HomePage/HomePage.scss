@@ -1,0 +1,23 @@
+.home-page{
+
+
+
+
+ & .free-shipping-title{
+     background: #dd1e2a;
+ 
+ }   
+
+ & .pick-up-title{
+     background:#cccccc ;
+ }
+
+ & .free-shipping-title, .pick-up-title{
+    @media (min-width: 992px){
+        display: none;
+  }
+ }
+
+
+}
+
