@@ -3,9 +3,24 @@ import Button from '../../../Button/Button'
 import  MiniCartBody from './MinicartBody/MinicartBody'
 
 import './MiniCart.scss'
-const MiniCart = ({className, ordersInBag, itemAddedInbag, subTotal,  quantityShown})=>{
+const MiniCart = (
+    {   className, ordersInBag, itemAddedInbag, 
+        subTotal,  quantityShown, 
+        handleMouseEventForProCeedToCheckOut,
+        mouseIn,
+        mouseOut
+    
+    }
+    
+    
+    
+    )=>{
     return(
-        <div className={`mini-cart ${className} ${itemAddedInbag? 'active':''}`}>
+        <div 
+        className={`mini-cart ${className} ${itemAddedInbag? 'active':''}`}
+        onMouseEnter ={mouseIn}
+        onMouseLeave = {mouseOut}
+        >
                 <div className="mini-cart-header">
                     <h3>Items in your bag</h3>
                 </div>
@@ -29,7 +44,12 @@ const MiniCart = ({className, ordersInBag, itemAddedInbag, subTotal,  quantitySh
 
                     </h3>
                     <h5>Recive Free Shipping</h5>
-                    <Button className="checkout" routeName='/checkout'>PROCEED TO CHECKOUT </Button>
+                    <Button 
+                    
+                    handleMouseEventForProCeedToCheckOut= {handleMouseEventForProCeedToCheckOut}
+                    className="checkout" 
+                    routeName='/checkout'>PROCEED TO CHECKOUT </Button>
+
                 </div>
 
     </div>

@@ -4,6 +4,7 @@ import MiniCart from '../MiniCart/MiniCart'
 import { ReactComponent as BagSvg } from '../../shoppingBag/shoppingBag.svg';
 import {connect} from 'react-redux'
 import {authenticate, signOut  } from '../../../../firebase/authenticate'
+import {history } from "../../../../index";
 class MiddleBar extends React.Component{
     
     state= {
@@ -17,6 +18,8 @@ class MiddleBar extends React.Component{
 
   handleSignOut = ()=>{
         signOut();
+      
+        history.push("/");
   }
 
     handleMouseEvent = ()=>{
@@ -26,6 +29,19 @@ class MiddleBar extends React.Component{
                 }
                 
                 ))
+    }
+
+    handleMouseEventForProCeedToCheckOut = ()=>{
+        
+        this.setState(()=>({ minicartActive: ''}))
+    }
+
+    handleMouseIn = ()=>{
+        this.setState(()=>({ minicartActive: 'active'}))
+    }
+
+    handleMouseOut = ()=>{
+        this.setState(()=>({ minicartActive: ''}))
     }
     
     render(){
@@ -74,10 +90,14 @@ class MiddleBar extends React.Component{
                 
                     <MiniCart 
                     className={this.state.minicartActive}
-                    ordersInBag = {this.props.ordersInBag}
+                    ordersInBag = {this.props.ordersInBag.length > 0? this.props.ordersInBag : this.props.odersInBagForSignedInUser}
                     itemAddedInbag = {this.props.itemAddedInbag}
                     subTotal = {this.props.subTotal}
                     quantityShown = {this.props.quantityShown}
+                    handleMouseEventForProCeedToCheckOut ={this.handleMouseEventForProCeedToCheckOut}
+                    mouseIn= {this.handleMouseIn}
+                    mouseOut= {this.handleMouseOut}
+                    
                     />
                     
             </div>
@@ -86,14 +106,21 @@ class MiddleBar extends React.Component{
     }
 }
 
-const mapStateToProps = ({ordersInBag,itemAddedInbag})=>{
+const mapStateToProps = ({ordersInBag,itemAddedInbag,odersInBagForSignedInUser})=>{
     return{
         ordersInBag,
+        odersInBagForSignedInUser,
         itemAddedInbag,
-        quantityShown: ordersInBag.reduce((acc, cur)=>{
+        quantityShown: ordersInBag.length > 0 ? ordersInBag.reduce((acc, cur)=>{
             return acc + cur.quantity
-        }, 0),
-        subTotal: ordersInBag.reduce((acc, cur)=>{
+        }, 0): odersInBagForSignedInUser.reduce((acc, cur)=>{
+            return acc + cur.quantity
+        }, 0)
+        
+        ,
+        subTotal:  ordersInBag.length > 0 ?  ordersInBag.reduce((acc, cur)=>{
+            return acc + cur.price
+        }, 0) : odersInBagForSignedInUser.reduce((acc, cur)=>{
             return acc + cur.price
         }, 0)
     }

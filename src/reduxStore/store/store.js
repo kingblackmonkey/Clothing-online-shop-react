@@ -13,7 +13,7 @@ import userReducer from '../reducers/user'
 import odersInBagForSignedInUserReducer from '../reducers/odersInBagForSignedInUser'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-
+import modalReducer from '../reducers/modal'
 const persistConfig = {
   key: 'root',
   storage,
@@ -28,7 +28,8 @@ const persistedReducer = persistReducer(persistConfig, combineReducers(
     products: productReducer,
     filter: filterReducer,
    itemAddedInbag: itemAddedInbagReducer,
-    ordersInBag: ordersInBagReducer
+    ordersInBag: ordersInBagReducer,
+    modal: modalReducer
   }
   
   

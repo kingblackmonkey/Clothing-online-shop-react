@@ -70,7 +70,7 @@ const mapStateToProps = (state, ownProps)=>{
                 return item.id ===  id
         })
     return {
-        singleProduct
+        singleProduct: {...singleProduct, basePrice: singleProduct.price }
     }
 }
 export default connect(mapStateToProps)(DetailItemPage)

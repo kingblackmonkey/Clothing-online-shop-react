@@ -2,14 +2,15 @@ import React from 'react'
 import CheckoutPageTop  from './CheckoutPageTop/CheckoutPageTop'
 import CheckoutPageBottom from './CheckoutPageBottom/CheckoutPageBottom'
 import {connect} from 'react-redux'
-const CheckoutPage = ({ordersInBag, subTotal, itemsCount})=>{
+const CheckoutPage = ({ordersInBag, subTotal, itemsCount, odersInBagForSignedInUser })=>{
     return(
         <div className = "container">
                 <div className="row">
                     <div className="col-sm-12 col-md-8">
                           <CheckoutPageTop 
-                           ordersInBag = {ordersInBag} 
+                           ordersInBag = {ordersInBag.length > 0 ? ordersInBag: odersInBagForSignedInUser} 
                            itemsCount= {itemsCount}
+                           subTotal = {subTotal}
                            />
                     </div>
                   
@@ -23,13 +24,18 @@ const CheckoutPage = ({ordersInBag, subTotal, itemsCount})=>{
         </div>
     )
 }
-const mapStateToProps = ({ordersInBag})=>{
+const mapStateToProps = ({ordersInBag, odersInBagForSignedInUser})=>{
     return {
         ordersInBag,
-        subTotal: ordersInBag.reduce((acc, cur)=>{
+        odersInBagForSignedInUser,
+        subTotal:  ordersInBag.length > 0 ?  ordersInBag.reduce((acc, cur)=>{
+            return acc + cur.price
+        }, 0) : odersInBagForSignedInUser.reduce((acc, cur)=>{
             return acc + cur.price
         }, 0),
-        itemsCount:  ordersInBag.reduce((acc, cur)=>{
+        itemsCount:  ordersInBag.length > 0 ? ordersInBag.reduce((acc, cur)=>{
+            return acc + cur.quantity
+        }, 0): odersInBagForSignedInUser.reduce((acc, cur)=>{
             return acc + cur.quantity
         }, 0)
     }

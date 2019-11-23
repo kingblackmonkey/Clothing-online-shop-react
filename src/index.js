@@ -22,16 +22,17 @@ import { transferOrderToBagActionThunk,
 import { PersistGate } from 'redux-persist/integration/react'
 import {signUserIn,  signUserOut} from './reduxStore/actions/user'
 
+
+import Modal from 'react-modal';
+
 export const history = createBrowserHistory();
 
 
 
 
-// database.ref(`/users/myuserid/items`).push({id:12,name:'bloh',price:5});
-
-
 const fetchDataAndFillReduxStore =async()=>{
-
+ 
+        // Modal.setAppElement('#root')
 
     
      await store.dispatch(addProductActionThunk())  
@@ -80,7 +81,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         } else {
                 store.dispatch( signUserOut())
                 store.dispatch( defaultOrderInBagForSignInUser())
-                store.dispatch( defaultOrderInBagForGuest())
+              
+                // store.dispatch( defaultOrderInBagForGuest())
                 fetchDataAndFillReduxStore();
                 console.log('sign out')
         }

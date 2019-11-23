@@ -1,5 +1,6 @@
 .mini-cart{
    visibility: hidden;
+
     opacity: 0;
     width: 45rem;
     border: 1px solid #ccc;
@@ -12,6 +13,7 @@
     &.active{
         visibility: visible;
         opacity: 1;
+    
     }
     &::before{
         content: '';
@@ -27,8 +29,9 @@
         transform: translateX(-50%);
         border-width: 4px 10px 17px 10px;
         border-color: transparent transparent #cdcdcd transparent;
-        visibility: visible;
-        opacity: 1;
+        visibility: hidden;
+    
+        opacity: 0;
     }
 
     &::after{
@@ -45,9 +48,18 @@
         transform: translateX(-50%);
         border-width: 0 9px 15px 9px;
         border-color: transparent transparent #ffffff transparent;
+        visibility: hidden;
+     
+        opacity: 0;
+    }
+
+    &.active::before, &.active::after{
         visibility: visible;
         opacity: 1;
+    
     }
+
+
 
 
     & .mini-cart-header{
