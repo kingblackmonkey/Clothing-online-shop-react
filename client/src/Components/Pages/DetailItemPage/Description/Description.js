@@ -3,6 +3,7 @@ import './Description.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faTwitter, faPinterest, faSnapchat} from '@fortawesome/free-brands-svg-icons'
 
+
 const Description = ({des, toggleDetailText, detailTextHidden})=>{
  
 
@@ -38,6 +39,9 @@ const Description = ({des, toggleDetailText, detailTextHidden})=>{
                 <span className="social-icon"> <FontAwesomeIcon icon={ faTwitter} /></span>
                 <span className="social-icon"> <FontAwesomeIcon icon={ faPinterest} /></span>
                 <span className="social-icon"> <FontAwesomeIcon icon={ faSnapchat} /></span>
+                
+
+
             </div>
         </div>
     )

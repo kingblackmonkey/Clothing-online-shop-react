@@ -1,0 +1,22 @@
+.middle-bar{
+    .hamburger{
+        font-size: 3rem;
+        color: rgb(51, 51, 51);
+    }
+
+    & .bag-icon-container.bag-icon-container-small-screen, & .hamburger{
+        @media (min-width:992px){
+            display: none ;
+        } 
+    }
+    & .bag-icon-container.bag-icon-container-small-screen{
+        top:0 ;
+    }
+
+    & .sign-in-big-sreen{
+        display:none ;
+        @media (min-width:992px){
+            display: flex ;
+        } 
+    }
+}

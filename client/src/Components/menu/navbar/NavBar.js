@@ -1,8 +1,9 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
-import{Navbar, Nav} from 'react-bootstrap'; import './NavBar.scss'
+
+import './NavBar.scss'
 
 import MiddleBar from './MiddleBar/MiddleBar'
+import BottomBar from './BottomBar/BottomBar'
 const NavBar = ()=>{
     return (
         <div className= 'main-navbar '>
@@ -12,29 +13,8 @@ const NavBar = ()=>{
 
         <MiddleBar />
 
-            <Navbar className= 'bottom-bar' expand="lg">
-                           
-                           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                           <Navbar.Collapse>
-                               <Nav className="ml-auto">
-                                   <li className ="px-4 mt-sm-3 mt-lg-0"> 
-                                       <NavLink   to="/shop/men_t_shirt" >Men Shirt</NavLink>
-                                   </li>
-                                   <li className="px-4 mt-sm-3 mt-lg-0"> 
-                                       <NavLink to="/addIncome" >Men Watch </NavLink>
-                                   </li>
-                                   <li className="px-4 mt-sm-3 mt-lg-0"> 
-                                       <NavLink to="/addIncome" >Women Shirt </NavLink>
-                                   </li>
-                                   <li className="px-4 mt-sm-3 mt-lg-0"> 
-                                       <NavLink to="/addIncome" >Women HandBags </NavLink>
-                                   </li>
-                               </Nav>
-                           
-                           </Navbar.Collapse>          
-
-                           
-                       </Navbar>
+        <BottomBar />
+           
       
          <div className = "spacer"></div>                                          
 

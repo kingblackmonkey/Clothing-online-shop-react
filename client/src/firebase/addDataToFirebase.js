@@ -9,3 +9,4 @@ const addData = (products)=>{
   
 }
 
+addData(SHOP_DATA );

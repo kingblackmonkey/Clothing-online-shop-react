@@ -3,12 +3,12 @@ import Collection from './Collection'
 import SideBar from './SideBar.js/Sidebar'
 const ShopPage = ({match})=>{
     return(
-        <div className="container">
+        <div className="container pt-5">
             <div className="row no-gutters">
-                    <div className="col-2">
+                    <div className="col-sm-12 col-md-2">
                         <SideBar />
                     </div>
-                    <div className="col-12 col-md-10">
+                    <div className="col-sm-12 col-md-10 ">
                         <Collection category= {match.params.productName}/>
                     </div>
                  

@@ -12,7 +12,7 @@ const  Collection = ({products,category, routeName})=>{
         <Form />
         <div className="row" >
               <div className="col-12 collection-header">
-                  <h2 className="ml-5">{category}</h2>
+                  <h2 style={{color:'#333', fontSize: '20px',fontWeight: '600'}} className="ml-5">{category}</h2>
 
               </div>
 

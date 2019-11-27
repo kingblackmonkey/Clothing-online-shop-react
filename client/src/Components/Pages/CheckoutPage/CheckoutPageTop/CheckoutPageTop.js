@@ -1,8 +1,9 @@
 import React from 'react'
 import CheckoutPageTopBody from './CheckoutPageTopBody/CheckoutPageTopBody'
 import {history} from '../../../../index'
-import {useEffect} from 'react'
+import {useState,useEffect} from 'react'
 import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios'
 import './CheckoutPageTop.scss'
 const CheckoutPageTop = ({ordersInBag, itemsCount,   subTotal})=>{
     
@@ -17,13 +18,30 @@ const CheckoutPageTop = ({ordersInBag, itemsCount,   subTotal})=>{
         console.log(token)
         console.log(address)
 
+        axios({
+            url: 'payment',
+            method: 'post',
+            data:{
+                amount: subTotal * 100,
+                token    
+            }
+        }).then((res)=>{
+                console.log(res)
+        }).catch((err)=>{
+              console.log('wrong')  
+        }) 
       }
+
+
+
+
+
   
     return(
-        <div >
+        <div  >
                 <div className="checkout-top-header">
                     <div className="no-vert-padding">
-                        <h2>Shopping Bag
+                        <h2> <strong >Shopping Bag</strong>
                         <span className="font-normal-weight desktop-only">
 
                         ({itemsCount} Item)
@@ -43,10 +61,13 @@ const CheckoutPageTop = ({ordersInBag, itemsCount,   subTotal})=>{
                                 billingAddress = {true}
                                 ComponentClass="custom-stripe-style"
 
-                        />
+                        ></StripeCheckout>
                     </div>
                 </div>
-                {ordersInBag.map((item,i)=>  <CheckoutPageTopBody  key = {i} {...item}  /> )}
+                <div  style={{borderBottom: '1px #ccc solid', borderTop:'1px #ccc solid', paddingBottom:'5rem', paddingTop:'2rem'}}>
+                       {ordersInBag.map((item,i)=>  <CheckoutPageTopBody  key = {i} {...item}  /> )}
+                </div>
+             
                
         </div>
     )

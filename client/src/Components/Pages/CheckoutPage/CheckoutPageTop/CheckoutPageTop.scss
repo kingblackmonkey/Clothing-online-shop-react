@@ -1,2 +1,22 @@
-
+.checkout-top-header{
+    & .StripeCheckout{
+        width: 100%;
+        margin: 15px 0;
+        span{
+            display: inline-block !important;
+            width: 100% !important;
+            height: 100% !important;
+           background-image: none !important;
+                background-color: #307D9A !important;
+                font-size: 2.2rem !important;
+                font-weight: bold;
+                padding: 16px 30px !important;
+                text-transform: uppercase;
+              
+        }
+        @media (min-width:768px){
+            display: none !important;
+        }
+    }
+}
 

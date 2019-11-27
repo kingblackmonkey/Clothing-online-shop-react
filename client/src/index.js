@@ -23,8 +23,8 @@ import { PersistGate } from 'redux-persist/integration/react'
 import {signUserIn,  signUserOut} from './reduxStore/actions/user'
 
 
-import Modal from 'react-modal';
 
+// import './firebase/addDataToFirebase'
 export const history = createBrowserHistory();
 
 

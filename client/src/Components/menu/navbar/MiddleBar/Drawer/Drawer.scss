@@ -1,0 +1,37 @@
+
+
+.drawer-container {
+    background-color: #eceaeb;
+    width: 80%;
+    height: 100%;
+    position: fixed;
+    width: 70vw;
+    height: 100vh;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    transform: translateX(-90rem);
+   
+    @media (min-width:1024px){
+        display: none ;
+    }
+    transition: transform .4s linear;
+    &.slide-in{
+        transform: translateX(0);
+    }
+
+    & div{
+        border-bottom: 1px solid #777;
+        padding: 13px 10px;
+        letter-spacing: 1px;
+        font-weight: 500;
+      font-size: 2rem;
+        text-transform: uppercase;
+        
+        & span, & a {
+            color: #777 !important;
+            font-weight: 500;
+        }
+    }
+
+}

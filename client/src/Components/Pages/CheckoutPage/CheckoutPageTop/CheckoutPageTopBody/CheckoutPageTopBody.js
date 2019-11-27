@@ -37,7 +37,7 @@ class CheckoutPageTopBody extends React.Component{
     render(){
 
         return (
-            <div className="checkout-top-body">
+            <div className="checkout-top-body py-4">
                 <div className="row">
                        <div className="col-3">
                            <div className="checkout-top-body-picture">
@@ -50,19 +50,19 @@ class CheckoutPageTopBody extends React.Component{
                                    <div className="checkout-top-body-text">
         
                                            <div className="product-list-item">
-                                               <div className="name">
-                                                       <a className="product-name" >{this.props.name}</a>
+                                               <div className="name pb-3">
+                                                       <a className="product-name " ><strong>{this.props.name}</strong></a>
                                            </div>
                                              
-                                               <div className="sku">
-                                                   <span className="label">Item#  </span>
-                                                   <span className="value">{this.props.id}</span>
+                                               <div className="sku pb-3">
+                                                   <span className="label"><strong>Item#  </strong></span>
+                                                   <span className="value"><strong>{this.props.id}</strong></span>
                                                </div>
-                                               <div className="attribute" data-attribute="size">
+                                               <div className="attribute pb-3" data-attribute="size">
                                                    <span className="label">Size:</span>
                                                    <span className="value">  {this.props.size} </span>
                                                </div>
-                                               <div className="attribute" data-attribute="color">
+                                               <div className="attribute pb-3 " data-attribute="color" style={{borderBottom:'1px solid rgb(51, 51, 51)'}}>
                                                    <span className="label">Color:</span>
                                                    <span className="value"> Same as Picture</span>
                                                </div>
@@ -71,18 +71,18 @@ class CheckoutPageTopBody extends React.Component{
                                    </div>  
                             </div>
                             <div className="col-sm-12 col-md-6 ">
-                                <div className="checkout-top-body-number row">
+                                <div className="checkout-top-body-number  row">
                                     <div className="col-6 order-md-12">
                                         
                                         <div className="item-total mobile-only">
         
                                             <div className="price-total ">
-                                                <span className="price-bold">${this.props.price}</span>
+                                                <span className="price-bold"><strong>${this.props.price}</strong></span>
                                             </div>
                                           <span  
                                           onClick={this.handleOpenModal}
-                                          
-                                          className="checkout-top-body-number-edit">Edit</span> 
+                                          style={{borderBottom:'1px solid #757575',color:'#757575', cursor: 'pointer',fontSize:'15px'}}
+                                          className="checkout-top-body-number-edit mr-3">Edit</span> 
                                           < ModalForEdit   
                                           id={this.props.firebaseItemId? this.props.firebaseItemId:this.props.id  }
                                           imageUrl={this.props.imageUrl}
@@ -97,7 +97,7 @@ class CheckoutPageTopBody extends React.Component{
                                           />
                                         
                                           <span   
-                                          style={{cursor: 'pointer'}}                                       
+                                          style={{cursor: 'pointer',borderBottom:'1px solid #757575',color:'#757575',fontSize:'15px' }}                                       
                                           className="checkout-top-body-number-remove"
                                           onClick = {()=>{
                                              this.props.firebaseItemId?  
@@ -105,12 +105,12 @@ class CheckoutPageTopBody extends React.Component{
                                             this.handleRemove(this.props.id, this.props.size)
                                           }}
                                           >
-                                              Remove</span>
+                                            Remove </span>
                                          
                                         </div>
                                     </div>
                                     <div className="col-6 order-md-1">
-                                        <span className="checkout-top-body-number-quantity-text">Qty:</span> <span>{this.props.quantity}</span>
+                                        <span className="checkout-top-body-number-quantity-text"><strong>Qty:</strong></span> <span>{this.props.quantity}</span>
                                     </div>
                                 </div>
                            

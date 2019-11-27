@@ -7,70 +7,70 @@ const SHOP_DATA = {
          {
            id: 1,
            name: 'Bewakoof',
-           imageUrl: '/img/imagesForOnlineShop/men t-shirt/bewakoof-com-official-_iKNFEIVthQ-unsplash.jpg',
+           imageUrl: "https://i.ibb.co/9NLrjtr/bewakoof-com-official-i-KNFEIVth-Q-unsplash.jpg",
            price: 25,
            des:'Shredded T-Shirt. Soft cotton t-shirt. Features distressed logo at front left and larger version at back. Ribbed crew neckline. Short sleeves. 100% cotton. Machine wash. Imported.'
          },
          {
            id: 2,
            name: 'Eduardo Dutra',
-           imageUrl: '/img/imagesForOnlineShop/men t-shirt/eduardo-dutra-ZHy0efLnzVc-unsplash.jpg',
+           imageUrl: 'https://i.ibb.co/L8XZMVf/eduardo-dutra-ZHy0ef-Lnz-Vc-unsplash.jpg',
            price: 18,
            des:'script and Party Pants logo with whale graphic at front left, with larger version screened at back. Ribbed crew neckline. Short sleeves. 100% cotton. Machine wash.'
          },
          {
            id: 3,
            name: 'Fawz Pilus',
-           imageUrl: '/img/imagesForOnlineShop/men t-shirt/fawz-pilus-SxB5iOeY7XU-unsplash.jpg',
+           imageUrl: 'https://i.ibb.co/qDJNG6j/fawz-pilus-Sx-B5i-Oe-Y7-XU-unsplash.jpg',
            price: 35,
            des:'Thermal knit tee features  circle logo at left chest, with script logo screened along both sleeves. Ribbed crew neckline and cuffs. Long sleeves. 60% cotton/40% polyester. Machine wash.'
          },
          {
            id: 4,
            name: 'Free-To-Use-Sounds',
-           imageUrl: '/img/imagesForOnlineShop/men t-shirt/free-to-use-sounds-ObbDrFOudbY-unsplash.jpg',
+           imageUrl: 'https://i.ibb.co/bg9ndYQ/free-to-use-sounds-Obb-Dr-FOudb-Y-unsplash.jpg',
            price: 25,
            des:'Cotton t-shirt features  logo at front left with palm tree graphics. Classic checkerboard print screened along each sleeve. Long sleeves. Ribbed cuffs and crew neckline. 100% cotton. Machine wash. '
          },
          {
            id: 5,
            name: 'Jestoni Dadis',
-           imageUrl: '/img/imagesForOnlineShop/men t-shirt/jestoni-dadis-Lwf8toc07vo-unsplash.jpg',
+           imageUrl: 'https://i.ibb.co/KK7MDtX/jestoni-dadis-Lwf8toc07vo-unsplash.jpg',
            price: 18,
            des:'Left Chest Hit Tee. Solid cotton t-shirt. Features small screened logo at front left. Long sleeves. Ribbed crew neckline and cuffs. 100% cotton. Machine wash.'
          },
          {
            id: 6,
            name: 'Joel Mott',
-           imageUrl: '/img/imagesForOnlineShop/men t-shirt/joel-mott-mHNO3_QrnnY-unsplash.jpg',
+           imageUrl: 'https://i.ibb.co/fk7HdT8/joel-mott-m-HNO3-Qrnn-Y-unsplash.jpg',
            price: 14,
            des:'Cotton t-shirt features logo with lotus flower fill. Ribbed crew neckline. Short sleeves.'
          },
          {
            id: 7,
            name: 'Tania Mousinho',
-           imageUrl: '/img/imagesForOnlineShop/men t-shirt/tania-mousinho-u2lRE7gRSs8-unsplash.jpg',
+           imageUrl: 'https://i.ibb.co/kgXzmY2/tania-mousinho-u2l-RE7g-RSs8-unsplash.jpg',
            price: 18,
            des:'Features graphic logo screened on front left, larger version on back. Ribbed crew neck. Short sleeves.'
          },
          {
            id: 8,
            name: 'Taylor',
-           imageUrl: '/img/imagesForOnlineShop/men t-shirt/taylor-bdYJWXg4pK4-unsplash.jpg',
+           imageUrl: 'https://i.ibb.co/qMSNSpK/taylor-bd-YJWXg4p-K4-unsplash.jpg',
            price: 14,
            des:'Features slightly faded logo at front left and larger version at back. Logo outline screened along both sleeves. Ribbed crew neckline and cuffs. Long sleeves. 100% cotton.'
          },
          {
            id: 9,
            name: 'Vinicius',
-           imageUrl: '/img/imagesForOnlineShop/men t-shirt/vinicius-henrique-FKeGskJ0Ivs-unsplash.jpg',
+           imageUrl: 'https://i.ibb.co/d4rRHnD/vinicius-henrique-FKe-Gsk-J0-Ivs-unsplash.jpg',
            price: 16,
            des:'Cotton t-shirt features Santa with plumeria floral fill at front left, with larger version screened at back. Floral graphics screened along each sleeve. Ribbed crew neckline and cuffs. '
          },
          {
           id: 10,
           name: 'Chandra Putra',
-          imageUrl: '/img/imagesForOnlineShop/men t-shirt/chandra-putra-1XfTM3qoPT4-unsplash.jpg',
+          imageUrl: 'https://i.ibb.co/RPjF34j/chandra-putra-1-Xf-TM3qo-PT4-unsplash.jpg',
           price: 15,
           des:'Features logo and script at front left. Script, floral, and dragon graphics screened at back. Ribbed crew neckline. Short sleeves.'
         },

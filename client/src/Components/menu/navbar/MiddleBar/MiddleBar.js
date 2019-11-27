@@ -5,11 +5,17 @@ import { ReactComponent as BagSvg } from '../../shoppingBag/shoppingBag.svg';
 import {connect} from 'react-redux'
 import {authenticate, signOut  } from '../../../../firebase/authenticate'
 import {history } from "../../../../index";
+import Drawer from './Drawer/Drawer'
+import DrawerBackground from './DrawerBackground/DrawerBackground'
+import {faBars } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './MiddleBar.scss'
 class MiddleBar extends React.Component{
     
     state= {
         minicartActive: '',
-      
+        mobileMenu: false,
+        
     }
 
   handleSignIn = ()=>{
@@ -43,29 +49,56 @@ class MiddleBar extends React.Component{
     handleMouseOut = ()=>{
         this.setState(()=>({ minicartActive: ''}))
     }
-    
+
+    handleOpenMobileMenu = ()=>{
+             this.setState(({ mobileMenu})=>({ mobileMenu: !mobileMenu}))
+            
+           ;
+       document.body.classList.value ?    document.body.classList.remove('open'): document.body.classList.add('open')
+    }
+
+ 
+  
     render(){
         return(
 
             
           <div className= 'middle-bar fluid '>
                 <div className="row ">
-                    <div className="col-sm-12 col-md-11 col-lg-6 text-sm-center text-lg-left logo px-5">
-                    <NavLink to="/" ><h1 className = 'pl-sm-7'>Your Brand Here</h1></NavLink>  
-                    </div>
-                    
-                    <div className = ' col-sm-12 col-md-1 col-lg-6 row justify-content-end px-5 align-items-center'>
-                        <span 
-                        style={{cursor:'pointer'}} 
-                        className = 'sign-in pr-3'
-                        onClick = {this.handleSignIn}
+                    <div className="col-sm-12 col-lg-6 text-sm-center pl-5 logo  row justify-content-between">
+                        <div className="hamburger ml-3" onClick={this.handleOpenMobileMenu}><FontAwesomeIcon icon={ faBars} /></div> 
+                      <NavLink to="/" ><h1 className = 'pl-5'>Your Brand Here</h1></NavLink>  
+                      <span 
+                        className= "bag-icon-container bag-icon-container-small-screen"
+                        onClick ={this.handleMouseEvent}
+                       
+                        
                         >
-                            
-                            Sign In
-                            
+                            <BagSvg  className="bag-icon bag-icon-small-screen"/>
+                           <span className= "bag-number">{this.props.quantityShown}</span>
                         </span>
+                    </div>
 
-                        <span 
+                    
+                    <div className = 'sign-in-big-sreen col-sm-12  col-lg-6 row justify-content-end px-5 align-items-center'>
+                      
+                        <span className="pr-3">Hello <strong style={{textTransform:'uppercase'}}>{this.props.name}!</strong></span>
+                       
+
+                        {
+                            this.props.name === 'guest'&& <span 
+                            style={{cursor:'pointer'}} 
+                            className = 'sign-in pr-3  d-inline-block '
+                            onClick = {this.handleSignIn}
+                            >
+                                
+                                Sign In
+                                
+                            </span>
+                        }
+
+                        {
+                             this.props.name !== 'guest'&&  <span 
                         style={{cursor:'pointer'}} 
                         className = 'sign-out pr-3'
                         onClick = {this.handleSignOut}
@@ -74,6 +107,9 @@ class MiddleBar extends React.Component{
                             Sign Out
                             
                         </span>
+                        }
+
+                      
 
                         <span 
                         className= "bag-icon-container"
@@ -87,6 +123,23 @@ class MiddleBar extends React.Component{
                     
                     </div>
                 </div>
+
+                {
+
+                 <Drawer 
+                    handleOpenMobileMenu={this.handleOpenMobileMenu}
+                    mobileMenu={ this.state.mobileMenu}
+                    /> 
+                }
+                { 
+                this.state.mobileMenu && <DrawerBackground 
+                mobileMenu={ this.state.mobileMenu}
+                /> 
+                
+                }
+                   
+                
+   
                 
                     <MiniCart 
                     className={this.state.minicartActive}
@@ -106,7 +159,7 @@ class MiddleBar extends React.Component{
     }
 }
 
-const mapStateToProps = ({ordersInBag,itemAddedInbag,odersInBagForSignedInUser})=>{
+const mapStateToProps = ({ordersInBag,itemAddedInbag,odersInBagForSignedInUser,user})=>{
     return{
         ordersInBag,
         odersInBagForSignedInUser,
@@ -122,7 +175,8 @@ const mapStateToProps = ({ordersInBag,itemAddedInbag,odersInBagForSignedInUser})
             return acc + cur.price
         }, 0) : odersInBagForSignedInUser.reduce((acc, cur)=>{
             return acc + cur.price
-        }, 0)
+        }, 0),
+        name: user.name
     }
 }
 
