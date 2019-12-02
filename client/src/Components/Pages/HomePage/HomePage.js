@@ -25,8 +25,8 @@ const HomePage = ()=>{
     
     return (
         <div className="home-page">           
-            <h4 className="free-shipping-title text-center mt-md-4"> FREE SHIPPING ON ORDERS OVER $49 <span>details</span></h4>
-            <p className="pick-up-title text-center"><span>icon</span>PICK UP YOUR ITEMS IN A STORE TODAY!</p>
+            <h4 className="free-shipping-title text-center mt-md-4 py-4" style={{color:'white', fontSize:'12px', fontWeight:'700'}}> FREE SHIPPING ON ALL ORDERS  <span>details</span></h4>
+            <p className="pick-up-title text-center py-4" style={{fontSize:'12px', fontWeight:'700'}}>PICK UP YOUR ITEMS IN A STORE TODAY!</p>
             <PictureGrid  pictures = {pictures} />
 
         </div>

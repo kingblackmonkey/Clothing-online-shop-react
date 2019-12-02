@@ -49,10 +49,13 @@
             padding: .2rem .7rem;
             font-size: 1.2rem;
             &  .button{
+
+                top:80%;
                 padding: .2rem .7rem;
                 @media (min-width: 768px){
                     padding: .2rem 1rem;
                     font-size: 1.6rem;
+                    top:87%
               }
             }
             
@@ -64,11 +67,12 @@
             padding: .2rem .7rem;
             font-size: 1.2rem;
             &  .button{
+                top:80%;
                 padding: .2rem .7rem;
                 @media (min-width: 768px){
                     padding: .2rem 1rem;
                     font-size: 1.6rem;
-                
+                    top:87%
               }
             }
         } 

@@ -5,11 +5,18 @@
     width: 45rem;
     border: 1px solid #ccc;
     position: absolute;
-    top: 7rem;
+    top: 6.5rem;
     right:0;
     z-index: 999;
     background: #ffffff;
     transition: all .2s linear;
+
+
+    @media (max-width: 499px){
+        width: 33rem;
+  }
+
+
     &.active{
         visibility: visible;
         opacity: 1;
@@ -32,6 +39,10 @@
         visibility: hidden;
     
         opacity: 0;
+
+  @media (max-width: 499px){
+            left: 93%;
+      }
         @media (min-width: 992px){
             left: 85%;
       }
@@ -54,6 +65,10 @@
         visibility: hidden;
      
         opacity: 0;
+
+        @media (max-width: 499px){
+            left: 93%;
+      }
         @media (min-width: 992px){
             left: 85%;
       }
