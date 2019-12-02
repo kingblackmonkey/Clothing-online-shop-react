@@ -30,7 +30,7 @@ const CheckoutPageTop = ({ordersInBag, itemsCount,   subTotal, defaultOrderInBag
                subTotal
             }
         }).then((res)=>{
-               console.log(res)
+            //    console.log(res)
 
         }).catch((err)=>{
               console.log(err)  
@@ -50,7 +50,7 @@ const CheckoutPageTop = ({ordersInBag, itemsCount,   subTotal, defaultOrderInBag
                 token    
             }
         }).then((res)=>{
-                console.log(res)
+                // console.log(res)
                 sendEmail(res)
         }).catch((err)=>{
               console.log('wrong')  

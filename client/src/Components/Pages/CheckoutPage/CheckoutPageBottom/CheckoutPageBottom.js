@@ -19,10 +19,10 @@ const CheckoutPageBottom= ({subTotal, itemsCount, isFixedToViewPort, isFixedToPa
                subTotal
             }
         }).then((res)=>{
-               console.log(res)
+            //    console.log(res)
 
         }).catch((err)=>{
-              console.log(err)  
+             console.log(err)  
         }) 
       }
     
@@ -38,7 +38,7 @@ const CheckoutPageBottom= ({subTotal, itemsCount, isFixedToViewPort, isFixedToPa
                 token    
             }
         }).then((res)=>{
-                console.log(res)
+                // console.log(res)
                 sendEmail(res)
 
         }).catch((err)=>{
