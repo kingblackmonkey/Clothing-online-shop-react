@@ -22,7 +22,7 @@ const MiniCart = (
         onMouseLeave = {mouseOut}
         >
                 <div className="mini-cart-header">
-                    <h3>Items in your bag</h3>
+                    <h3 className="px-3"><strong>ITEMS IN YOUR BAG</strong></h3>
                 </div>
 
                 <div className="mini-cart-body-wrapper">
@@ -37,10 +37,10 @@ const MiniCart = (
   
             
                 <div className="mini-cart-bottom">
-                    <h3>
-                         <span>Subtotal ({quantityShown} item)</span>
+                    <h3 className="row justify-content-between px-5">
+                    <span><strong>Subtotal ({quantityShown} item)</strong></span>
 
-                     <span>${subTotal}</span>
+                     <span ><strong>${subTotal}</strong></span>
 
                     </h3>
                     <h5>Recive Free Shipping</h5>

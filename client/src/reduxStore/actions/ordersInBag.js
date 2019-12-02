@@ -1,5 +1,5 @@
 import database from '../../firebase/firebase'
-import { async } from 'q'
+
 
 
 const addOrderToBag = (order)=>{

@@ -13,28 +13,28 @@ const SideBar= ()=>{
 
                         <li>
 
-                        <a className="refinement-link " href="#">graphic tees</a>
+                        <span className="refinement-link ">Men Shirts</span>
 
 
                         </li>
 
                         <li>
 
-                        <a className="refinement-link " href="#">pocket tees</a>
+                        <span className="refinement-link ">Men Watch</span>
 
 
                         </li>
 
                         <li>
 
-                        <a className="refinement-link " href="#">stripe tees</a>
+                        <span className="refinement-link ">Women Shirt</span>
 
 
                         </li>
 
                         <li>
 
-                        <a className="refinement-link " href="#">thermals</a>
+                        <span className="refinement-link ">Woman Handbags</span>
 
 
                         </li>
@@ -45,117 +45,117 @@ const SideBar= ()=>{
 
 
            <div className="refinement-color">
-                    <h3 className="toggle " tabindex="0">
+                    <h3 className="toggle " >
                     Color
                     </h3>
 
                 <ul className="selected-size-color-ul color  ">
 
                         <li className="swatch-beige">
-                        <a style={{background: '#ecd5a9'}} href="#">
-                                        </a>
+                        <span style={{background: '#ecd5a9'}}>
+                                        </span>
                         </li>
 
                         <li className="swatch-black">
-                        <a style={{background:'black'}} href="#">
-                                        </a>
+                        <span style={{background:'black'}}>
+                                        </span>
                         </li>
 
                         <li className="swatch-blue">
-                        <a style={{background:'#036ba2'}} href="#">
-                                      </a>
+                        <span style={{background:'#036ba2'}}>
+                                      </span>
                         </li>
 
                         <li className="swatch-brown">
-                        <a style={{background:'#916820'}} href="#" >
-                                        </a>
+                        <span style={{background:'#916820'}} >
+                                        </span>
                         </li>
 
                         <li className="swatch-burgundy">
-                        <a style={{background:'#800020'}} href="#">
-                                              </a>
+                        <span style={{background:'#800020'}}>
+                                              </span>
                         </li>
 
                         <li className="swatch-gold">
-                        <a style={{background:'#d0ac1e'}} href="#">
-                                      </a>
+                        <span style={{background:'#d0ac1e'}}>
+                                      </span>
                         </li>
 
                         <li className="swatch-green">
-                        <a style={{background:'#1d9b1d'}} href="#">
-                                        </a>
+                        <span style={{background:'#1d9b1d'}}>
+                                        </span>
                         </li>
 
                         <li className="swatch-grey">
-                        <a style={{backGround:'#777777'}} href="#">
-                                      </a>
+                        <span style={{backGround:'#777777'}}>
+                                      </span>
                         </li>
 
                         <li className="swatch-medium ">
-                        <a style={{background:'#424f5f'}} href="#">
-                                          </a>
+                        <span style={{background:'#424f5f'}}>
+                                          </span>
                         </li>
 
                         <li className="swatch-mint">
-                        <a style={{background:'#3eb489'}} href="#">
-                                      </a>
+                        <span style={{background:'#3eb489'}}>
+                                      </span>
                         </li>
 
                         <li className="swatch-multi">
-                        <a style={{background:'#f6edda'}} href="#">
-                                        </a>
+                        <span style={{background:'#f6edda'}}>
+                                        </span>
                         </li>
 
                         <li className="swatch-off_white">
-                        <a style={{background:'#f6edda'}} href="#">
+                        <span style={{background:'#f6edda'}}>
                        
-                        </a>
+                        </span>
                         </li>
 
                         <li className="swatch-orange">
-                        <a style={{background:'#ef9117'}} href="#">
-                                          </a>
+                        <span style={{background:'#ef9117'}}>
+                                          </span>
                         </li>
 
 
                         <li className="swatch-pink">
-                        <a style={{background:'#ffc0cb'}} href="#">
-                                      </a>
+                        <span style={{background:'#ffc0cb'}}>
+                                      </span>
                         </li>
 
                         <li className="swatch-purple">
-                        <a style={{background: '#850485'}} href="#">
-                                          </a>
+                        <span style={{background: '#850485'}}>
+                                          </span>
                         </li>
 
 
                         <li className="swatch-red ">
-                        <a style={{background:'#d81720'}} href="#">
-                                    </a>
+                        <span style={{background:'#d81720'}}>
+                                    </span>
                         </li>
 
 
                         <li className="swatch-silver">
-                        <a style={{background:'#b8bbbd'}} href="#">
-                                          </a>
+                        <span style={{background:'#b8bbbd'}}>
+                                          </span>
                         </li>
 
 
                         <li className="swatch-turquoise">
-                        <a style={{background:'#42b5a6'}} href="#">
-                                                </a>
+                        <span style={{background:'#42b5a6'}}>
+                                                </span>
                         </li>
 
 
                         <li className="swatch-white">
-                        <a style={{background:'white'}} href="#">
-                                        </a>
+                        <span style={{background:'white'}}>
+                                        </span>
                         </li>
 
 
                         <li className="swatch-yellow ">
-                        <a style={{background:'#ffff00'}} href="#">
-                                          </a>
+                        <span style={{background:'#ffff00'}}>
+                                          </span>
                         </li>
 
 

@@ -1,16 +1,37 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios'
+import { store } from 'react-notifications-component';
 import './CheckoutPageBottom.scss'
-const CheckoutPageBottom= ({subTotal, itemsCount, isFixedToViewPort, isFixedToParent} )=>{
+import {history} from '../../../../index'
+import {signOut} from '../../../../firebase/authenticate'
+const CheckoutPageBottom= ({subTotal, itemsCount, isFixedToViewPort, isFixedToParent,  ordersInBag,  defaultOrderInBag} )=>{
 
+    const sendEmail = (res)=>{
+        axios({
+            url: 'sendEmail',
+            method: 'post',
+            data:{
+               email: res.data.success.receipt_email,
+               name: res.data.success.billing_details.name, 
+               orderNumber: res.data.success.customer,
+               ordersInBag ,
+               subTotal
+            }
+        }).then((res)=>{
+               console.log(res)
+
+        }).catch((err)=>{
+              console.log(err)  
+        }) 
+      }
     
-    const  onToken = (token,address) => {
-        console.log(token)
-        console.log(address)
+    const  onToken = (token) => {
+        // console.log(token)
+        // console.log(address)
 
         axios({
-            url: 'payment',
+            url: '/payment',
             method: 'post',
             data:{
                 amount: subTotal * 100,
@@ -18,10 +39,34 @@ const CheckoutPageBottom= ({subTotal, itemsCount, isFixedToViewPort, isFixedToPa
             }
         }).then((res)=>{
                 console.log(res)
+                sendEmail(res)
+
         }).catch((err)=>{
               console.log('wrong')  
         }) 
-      }
+
+// show notification
+        store.addNotification({
+            title: "Horray You Placed an Order!",
+            message: "Check Your Email for Order Confirmation",
+            type: "success",
+            insert: "top",
+            container: "top-center",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+              duration: 8000,
+              onScreen: true
+            }
+          });
+// clear the cart in redux
+defaultOrderInBag()
+// sign out
+signOut()
+// go back to home page
+history.push('/')
+
+}
     return (
         <div 
         className= {
@@ -61,7 +106,7 @@ const CheckoutPageBottom= ({subTotal, itemsCount, isFixedToViewPort, isFixedToPa
                 <div className=" order-summary-action">
                     <div className="mx-5 mx-sm-4 mx-xl-5">
                                 <StripeCheckout
-                                name={`Clothing Shop Co. `}
+                                name={`Clothing Shop Co.`}
                                 token={onToken}
                                 stripeKey="pk_test_Uw2pk4Pv5Y1HY141M6ajikcs005GSImQzB"
                                 currency="USD"
@@ -75,7 +120,7 @@ const CheckoutPageBottom= ({subTotal, itemsCount, isFixedToViewPort, isFixedToPa
                     </div>
               
 
-                    <p style={ {fontSize:'12px', padding: '3rem 8rem', textAlign:'center'}}>By placing your order, you agree to Clothing Shop.Co privacy policy and terms of use.</p>
+                    <p style={ {fontSize:'12px', padding: '3rem 8rem', textAlign:'center', color:'#1e363c'}}><strong>USE CARD NUMBER: <i>4242 4242 4242 4242 </i> --EXPIRATION DATE: <i>12/50</i> --CVC: <i>123</i> TO MAKE TESTING PAYMENT--- USE YOUR REAL EMAIL TO GET ORDER CONFIRMATION</strong></p>
                 </div>   
             </div>      
         

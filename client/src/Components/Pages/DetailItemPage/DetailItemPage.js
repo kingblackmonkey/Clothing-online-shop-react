@@ -36,16 +36,16 @@ class  DetailItemPage extends React.Component{
                 
                      <div style={{height:"700px"}} className="px-3 ">
                      
-                         <img  style={{width:'100%', height:'100%'}} className="img-fluid" src={this.props.singleProduct.imageUrl}></img>
+                         <img  style={{width:'100%', height:'100%'}} className="img-fluid" src={this.props.singleProduct.imageUrl} alt="product"></img>
  
                      </div>
                 </div>
                 <div className="col-12 col-md-5  col-lg-4 px-5 px-md-0 ">
                     {
                         this.state.smallScreenSize?
-                          <DetailItemSmallScreen singleProduct = {this.props.singleProduct}/>
+                          <DetailItemSmallScreen singleProduct = {this.props.singleProduct} category={this.props.match.params.productName}/>
                           :
-                          <DetailItemBigScreen singleProduct = {this.props.singleProduct}/> 
+                          <DetailItemBigScreen singleProduct = {this.props.singleProduct} category={this.props.match.params.productName}/> 
                           
                     }
                 

@@ -1,20 +1,22 @@
-import React, {useState,  useEffect } from 'react'; 
+import React, {useState,  useEffect, useRef } from 'react'; 
 import CheckoutPageTop  from './CheckoutPageTop/CheckoutPageTop'
 import CheckoutPageBottom from './CheckoutPageBottom/CheckoutPageBottom'
 import {connect} from 'react-redux'
-const CheckoutPage = ({ordersInBag, subTotal, itemsCount, odersInBagForSignedInUser })=>{
-    let parentElement;
-   
+import {defaultOrderInBagForGuest,  defaultOrderInBagForSignInUser } from '../../../reduxStore/actions/ordersInBag'
+const CheckoutPage = ({ordersInBag, subTotal, itemsCount, odersInBagForSignedInUser, defaultOrderInBagForGuest,  defaultOrderInBagForSignInUser })=>{
+    
+    const parentR = useRef(null);
+    
     const [isFixedToViewPort, setisFixedToViewPort] = useState(false);
     useEffect(() => {
-        console.log('use eefect')
-            if(ordersInBag.length > 1 ){
+       
+            if(ordersInBag.length > 2|| odersInBagForSignedInUser.length > 2){
                 setisFixedToViewPort(true)
             
             }else{
                 setisFixedToViewPort(false)
             }
-      });
+      }, [ordersInBag.length, odersInBagForSignedInUser.length] );
 
       const [isFixedToParent, setisFixedToParent] = useState(false);
 
@@ -35,7 +37,8 @@ const CheckoutPage = ({ordersInBag, subTotal, itemsCount, odersInBagForSignedInU
 
     const myEfficientFn = debounce(function() {
       
-        if(window.scrollY > (parentElement.getBoundingClientRect().height + 83)/2 ){
+        if(window.scrollY > (parentR.current.getBoundingClientRect().height + 83)/4 ){
+        
             setisFixedToParent(true)
         }else{
             setisFixedToParent(false)
@@ -46,12 +49,13 @@ const CheckoutPage = ({ordersInBag, subTotal, itemsCount, odersInBagForSignedInU
     }, 500);
 
       useEffect(() => {
-         parentElement= document.querySelector('.order-summary-wrapper')
-        if(ordersInBag.length > 1){
-
+       
+        if(ordersInBag.length > 2 || odersInBagForSignedInUser.length > 2){
+               
             window.addEventListener('scroll', myEfficientFn) ;         
             return ()=>{
                window.removeEventListener('scroll', myEfficientFn)
+              
             }
         }
           
@@ -59,14 +63,16 @@ const CheckoutPage = ({ordersInBag, subTotal, itemsCount, odersInBagForSignedInU
         });
 
     return(
-        <div style={{position:"relative"}} className = "container order-summary-wrapper">
+        <div ref={parentR}  style={{position:"relative"}} className = "container order-summary-wrapper mt-5">
                 <div className="row">
                     <div className="col-sm-12 col-md-7 col-lg-8">
                           <CheckoutPageTop 
                            ordersInBag = {ordersInBag.length > 0 ? ordersInBag: odersInBagForSignedInUser} 
                            itemsCount= {itemsCount}
                            subTotal = {subTotal}
-                           />
+                           defaultOrderInBag = {ordersInBag.length > 0 ? defaultOrderInBagForGuest:  defaultOrderInBagForSignInUser}
+                           
+                         />
                     </div>
                   
                     <div className="col-sm-12 col-md-5 col-lg-4" >
@@ -75,6 +81,8 @@ const CheckoutPage = ({ordersInBag, subTotal, itemsCount, odersInBagForSignedInU
                            itemsCount= {itemsCount}
                            isFixedToViewPort= {isFixedToViewPort}
                            isFixedToParent = {isFixedToParent}
+                           ordersInBag = {ordersInBag.length > 0 ? ordersInBag: odersInBagForSignedInUser} 
+                           defaultOrderInBag = {ordersInBag.length > 0 ? defaultOrderInBagForGuest:  defaultOrderInBagForSignInUser}
                         />
                     </div>
                 </div>
@@ -97,8 +105,13 @@ const mapStateToProps = ({ordersInBag, odersInBagForSignedInUser})=>{
         }, 0)
     }
 }
+const mapDispatchToProps = {
+    defaultOrderInBagForGuest,
+    defaultOrderInBagForSignInUser
+}
 
-export default connect(mapStateToProps)(CheckoutPage) 
+
+export default connect(mapStateToProps, mapDispatchToProps )(CheckoutPage) 
 
 
 

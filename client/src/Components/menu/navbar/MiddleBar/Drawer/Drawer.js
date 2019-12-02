@@ -59,13 +59,19 @@ const Drawer = ({ handleOpenMobileMenu,  mobileMenu, name})=>{
                           to="/shop/men_t_shirt" >Men Shirt</NavLink>
                         </div>
                         <div>
-                        <NavLink to="/addIncome" >Men Watch </NavLink>
+                        <NavLink 
+                         onClick={ handleOpenMobileMenu}
+                        to="/shop/men_watch" >Men Watch </NavLink>
                         </div>
                         <div>
-                        <NavLink to="/addIncome" >Women Shirt </NavLink>
+                        <NavLink 
+                         onClick={ handleOpenMobileMenu}
+                        to="/shop/women_t_shirt" >Women Shirt </NavLink>
                         </div>
                         <div>
-                        <NavLink   to="/shop/men_t_shirt" >Men Shirt</NavLink>
+                        <NavLink   
+                         onClick={ handleOpenMobileMenu}
+                        to="/shop/women_hand_bags" >Women HandBags</NavLink>
                         </div>
 
 

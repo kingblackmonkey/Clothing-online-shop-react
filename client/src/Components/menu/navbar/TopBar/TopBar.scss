@@ -1,0 +1,41 @@
+.free-shipping-container{
+   display: none;
+    @media (min-width:992px){
+        display: block ;
+    } 
+    & .free-shipping{
+        padding: .8rem 3rem;
+       &   .free-shipping-text{
+        font-weight: lighter;
+        font-size: 14.5px;
+        color: #fbd84b;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        letter-spacing: .75px;
+    }
+    }
+}
+  
+
+
+.location-container{
+    & .location{
+
+          text-align: center;
+          @media (min-width:992px){
+           text-align: right ;
+        } 
+
+          padding: .8rem 5rem;
+            & span{
+                color: white;
+               
+                font-size: 12px;
+                letter-spacing: 0.75px;
+                padding: .6rem;
+                
+            }
+    }
+  
+    
+}

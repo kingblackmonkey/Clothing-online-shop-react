@@ -22,7 +22,7 @@
            position: relative;
            display: inline-block;
           
-           top: -2rem;
+           top: -3px;
            
            &::before{
                content: '';
@@ -32,7 +32,7 @@
            }
        
            @media (min-width: 768px){
-            top: 0rem;
+            top: -3px;
             }
 
           
@@ -45,7 +45,7 @@
             }
 
             & .bag-icon{
-                width: 25px;
+                width: auto;
                 
             }
 

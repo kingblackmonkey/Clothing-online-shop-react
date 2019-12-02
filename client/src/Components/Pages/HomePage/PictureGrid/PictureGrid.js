@@ -2,43 +2,104 @@ import React from 'react'
 import './PictureGrid.scss'
 import PictureGridItem from './PictureGridItem'
 import Button from '../../../Button/Button'
-const PictureGrid = ({img1,img2})=>{
-    return (
-        <div className="container picture-grid-container ">
-            <div className="row picture-grid-one no-gutters">          
-             
-                <PictureGridItem className = "col-md-6  picture-grid-item">    
-                    <img  className="img-fluid p-2" src={img1}></img>
-                    <Button> Shop Watch</Button>
-                </PictureGridItem>
+class  PictureGrid extends React.Component{
+    
 
-                <PictureGridItem className="col-md-6  picture-grid-item">    
-                    <img  className="img-fluid p-2" src={img2}></img>
-                    <Button> Shop HandBag</Button>
-                </PictureGridItem>
-     
-            </div>
-
-            <div className="row picture-grid-two my-5 no-gutters">          
+state = {
+    images: [],
+    
+}
+ onLoadHandler = (imgSrc)=>{
+         
+          
+            
                
-                <PictureGridItem className="col-6 picture-grid-item-first "> 
-                     <Button> Shop Men</Button>          
-                </ PictureGridItem>
-                <PictureGridItem className="col-6  picture-grid-item-second ">
-                     <Button> Shop Women</Button>   
-                </PictureGridItem>
-                   
-          
-              
-            </div> 
+          this.setState(({images})=>({images: [...images, imgSrc] }))
+            
 
-            <div className="row picture-grid-three no-gutters">          
-                <PictureGridItem  className="col-12  picture-grid-item mx-2"/>   
+  
+ }
+  
+ 
+
+        
+      
+    
+
+    render(){
+        return (
+            <div className="container picture-grid-container ">
+                <div className="row picture-grid-one no-gutters">    
+                    {
+                
+              this.state.images.length === 2 ?      this.state.images.map((item, i)=>(
+                        <PictureGridItem  key={i} className = "col-md-6  picture-grid-item" imageSource={item.img} >    
+                               <img  className="img-fluid p-2" src={item} alt="product"></img>
+                               <Button  routeName={this.props.pictures[i].routeName} > {this.props.pictures[i].buttonText}</Button>
+                        </PictureGridItem>
+                          )
+                     
+                    ):''            
+                  
+                    }     
+         
+                </div>
+                <div  className="hidden-holder" style={{display:'none'}}>
+                       {this.props.pictures.map((item)=>(
+                            <img 
+                            alt="product"
+                            src={item.img} 
+                            onLoad={()=>{
+                                this.onLoadHandler(item.img)
+                               
+                            }} 
+                             />
+                       ))}    
+                </div>
+    
+                <div className="row picture-grid-two my-5 no-gutters">
+                  {this.state.images.length === 2 ?
+                   <PictureGridItem className="col-6 picture-grid-item-first "> 
+                         <Button routeName="/shop/men_t_shirt"> Shop Men</Button>          
+                    </ PictureGridItem> :''
+    
+                        }  
+                     {
+                        this.state.images.length === 2 ? 
+                         <PictureGridItem className="col-6  picture-grid-item-second ">
+                                <Button routeName="/shop/women_t_shirt"> Shop Women</Button>                
+                          </PictureGridItem> 
+                    : ''
+                     }   
+                   
+                  
+                     
+    
+    
+    
+    
+    
+                 
+                       
               
-            </div> 
-          
-        </div>
-    )
+                  
+                </div> 
+    
+                <div className="row picture-grid-three no-gutters">   
+                {
+                         this.state.images.length === 2 ? 
+                                         <PictureGridItem  className="col-12  picture-grid-item mx-2"/>   
+                    : ''
+                     }  
+    
+    
+                  
+                </div> 
+              
+            </div>
+        )
+    }
+ 
 }
 export default PictureGrid
 

@@ -31,7 +31,7 @@ export default class DetailItemBigScreen extends React.Component{
             
          <DetailItemFormBody 
          {...this.props.singleProduct}
-             
+         category={this.props.category}    
          />
            
             <div className="detail-item-bottom">

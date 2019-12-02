@@ -63,11 +63,32 @@ class MiddleBar extends React.Component{
         return(
 
             
-          <div className= 'middle-bar fluid '>
+          <div className= 'middle-bar fluid 'style={{position:'relative'}}>
                 <div className="row ">
                     <div className="col-sm-12 col-lg-6 text-sm-center pl-5 logo  row justify-content-between">
                         <div className="hamburger ml-3" onClick={this.handleOpenMobileMenu}><FontAwesomeIcon icon={ faBars} /></div> 
-                      <NavLink to="/" ><h1 className = 'pl-5'>Your Brand Here</h1></NavLink>  
+                     <div    className=" ml-lg-5">
+                              <NavLink to="/"
+                                      style={{
+                                        display:'inline-block',width:'100%', height:'100%', 
+                                        backgroundImage:'url(https://i.ibb.co/VtMJxhY/imageedit-6-8339776761.png)',
+                                        backgroundSize:'cover',
+                                        backgroundPosition:'center',
+                                        backgroundRepeat:'no-repeat',
+                                        width: '300px',
+                                        height:'60px',
+                                        
+                                        
+                                        top:'10px'
+                                      }}
+                              >
+                              
+
+
+                          
+                          </NavLink>  
+                     </div>
+                 
                       <span 
                         className= "bag-icon-container bag-icon-container-small-screen"
                         onClick ={this.handleMouseEvent}
@@ -88,7 +109,7 @@ class MiddleBar extends React.Component{
                         {
                             this.props.name === 'guest'&& <span 
                             style={{cursor:'pointer'}} 
-                            className = 'sign-in pr-3  d-inline-block '
+                            className = 'sign-in pr-3 ml-auto d-inline-block '
                             onClick = {this.handleSignIn}
                             >
                                 

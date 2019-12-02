@@ -8,11 +8,10 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 import {store, persistor}from './reduxStore/store/store'
 import {Provider} from "react-redux"
-// import {fetchExpensesThunk} from './reduxStore/actions/expense'
-// import {fetchIncomeThunk} from './reduxStore/actions/income'
+
 import { createBrowserHistory } from 'history';
-// import authUserIdGenerator from './reduxStore/actions/authUserId'
-import database from './firebase/firebase'
+
+
 import {addProductActionThunk} from './reduxStore/actions/products'
 import { transferOrderToBagActionThunk,  
          defaultOrderInBagForSignInUser,
@@ -22,7 +21,7 @@ import { transferOrderToBagActionThunk,
 import { PersistGate } from 'redux-persist/integration/react'
 import {signUserIn,  signUserOut} from './reduxStore/actions/user'
 
-
+import Modal from 'react-modal';
 
 // import './firebase/addDataToFirebase'
 export const history = createBrowserHistory();
@@ -32,7 +31,7 @@ export const history = createBrowserHistory();
 
 const fetchDataAndFillReduxStore =async()=>{
  
-        // Modal.setAppElement('#root')
+         Modal.setAppElement('#root')
 
     
      await store.dispatch(addProductActionThunk())  
@@ -75,7 +74,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                         // create action to pull items from firbase back to bag for signed in user
                         fetchDataAndFillReduxStore();
 
-                        console.log('sign in')
+               
                
                     
         } else {
@@ -84,7 +83,7 @@ firebase.auth().onAuthStateChanged(function(user) {
               
                 // store.dispatch( defaultOrderInBagForGuest())
                 fetchDataAndFillReduxStore();
-                console.log('sign out')
+             
         }
       });
 

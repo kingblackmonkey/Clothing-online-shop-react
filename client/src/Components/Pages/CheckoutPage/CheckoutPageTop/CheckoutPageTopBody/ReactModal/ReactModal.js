@@ -19,7 +19,7 @@ const ModalForEdit = ({modalIsOpen,closeModal,  id ,  imageUrl, name, price,quan
                     <div className="row">
                             <div className="col-4">
                                         <div>
-                                          <img  src={imageUrl} className="img-fluid"/>
+                                          <img  src={imageUrl} className="img-fluid" alt="product"/>
                                         </div>   
                             </div>
                        
@@ -28,7 +28,7 @@ const ModalForEdit = ({modalIsOpen,closeModal,  id ,  imageUrl, name, price,quan
                                      <div className="detail-item-header-edit-modal">
                                             <div className="detail-brand-edit-modal">
                                             </div>
-                                            <span className="detail-link-to-brand-edit-modal">view all Brand </span>
+                                            <span className="detail-link-to-brand-edit-modal"><strong>View All Brand </strong></span>
                                             <h1 className="detail-item-title-edit-modal">{name}</h1>
                                     </div>
 

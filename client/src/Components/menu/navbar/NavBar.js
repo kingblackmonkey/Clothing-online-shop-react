@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './NavBar.scss'
-
+import TopBar from './TopBar/TopBar'
 import MiddleBar from './MiddleBar/MiddleBar'
 import BottomBar from './BottomBar/BottomBar'
 const NavBar = ()=>{
@@ -9,7 +9,7 @@ const NavBar = ()=>{
         <div className= 'main-navbar '>
 
                         
-          <div className = 'top-bar col-12'>Top Bar Black</div>
+      <TopBar />
 
         <MiddleBar />
 

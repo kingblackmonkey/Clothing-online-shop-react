@@ -1,11 +1,14 @@
 import React from 'react'
 import CheckoutPageTopBody from './CheckoutPageTopBody/CheckoutPageTopBody'
 import {history} from '../../../../index'
-import {useState,useEffect} from 'react'
+import {useEffect} from 'react'
 import StripeCheckout from 'react-stripe-checkout';
+import { store } from 'react-notifications-component';
 import axios from 'axios'
+
+import {signOut} from '../../../../firebase/authenticate'
 import './CheckoutPageTop.scss'
-const CheckoutPageTop = ({ordersInBag, itemsCount,   subTotal})=>{
+const CheckoutPageTop = ({ordersInBag, itemsCount,   subTotal, defaultOrderInBag})=>{
     
 
     useEffect(() => {
@@ -13,6 +16,27 @@ const CheckoutPageTop = ({ordersInBag, itemsCount,   subTotal})=>{
       if(!itemsCount) history.push('/')
      
       });
+
+
+      const sendEmail = (res)=>{
+        axios({
+            url: 'sendEmail',
+            method: 'post',
+            data:{
+               email: res.data.success.receipt_email,
+               name: res.data.success.billing_details.name, 
+               orderNumber: res.data.success.customer,
+               ordersInBag ,
+               subTotal
+            }
+        }).then((res)=>{
+               console.log(res)
+
+        }).catch((err)=>{
+              console.log(err)  
+        }) 
+      }
+      
 
      const  onToken = (token,address) => {
         console.log(token)
@@ -27,9 +51,34 @@ const CheckoutPageTop = ({ordersInBag, itemsCount,   subTotal})=>{
             }
         }).then((res)=>{
                 console.log(res)
+                sendEmail(res)
         }).catch((err)=>{
               console.log('wrong')  
         }) 
+
+
+// show notification
+store.addNotification({
+    title: "Horray You Placed an Order!",
+    message: "Check Your Email for Order Confirmation",
+    type: "success",
+    insert: "top",
+    container: "top-center",
+    animationIn: ["animated", "fadeIn"],
+    animationOut: ["animated", "fadeOut"],
+    dismiss: {
+      duration: 8000,
+      onScreen: true
+    }
+  });
+// clear the cart in redux
+defaultOrderInBag()
+// sign out
+signOut()
+// go back to home page
+history.push('/')
+
+
       }
 
 
@@ -51,7 +100,7 @@ const CheckoutPageTop = ({ordersInBag, itemsCount,   subTotal})=>{
                     </div>
                     <div>
                         <StripeCheckout
-                                name={`Clothing Shop Co. `}
+                                name={`Clothing Shop Co.`}
                                 token={onToken}
                                 stripeKey="pk_test_Uw2pk4Pv5Y1HY141M6ajikcs005GSImQzB"
                                 currency="USD"

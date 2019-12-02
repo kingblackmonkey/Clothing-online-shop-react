@@ -3,7 +3,6 @@ import Select from '../../../../../Select/Select'
 import Button from '../../../../../Button/Button'
 import {connect} from 'react-redux'
 import {addOrderToBagActionThunk} from '../../../../../../reduxStore/actions/ordersInBag'
-import addUpOrders from '../../../../../../reduxStore/utilityFunctions/addUpOrders'
 import  {addedItemInBag, defaultAddedItemInBag} from '../../../../../../reduxStore/actions/itemAddedInbag'
 // import './DetailItemFormBody.scss' come back to make its own file style for this form body
 
@@ -48,6 +47,12 @@ handleSubmit = (e)=>{
 
      this.props.addedItemInBag();
      setTimeout(()=>{ this.props.defaultAddedItemInBag();}, 3000);
+  
+    window.scroll({
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth' 
+      });
 }
 
 
@@ -60,7 +65,19 @@ handleSubmit = (e)=>{
         <form className="detail-item-body-small-screen" onSubmit={this.handleSubmit}>
                   <div className="row ">
                     <div className="col-10">
-                        <Select 
+                        {
+                        this.props.category==='men_watch' || this.props.category==='women_hand_bags'?
+
+                          <Select 
+                        value = {['Size','All Size']}
+                        name= 'Size' 
+                        className="size"
+                       
+                        selectedSize={this.state.selectedSize}  
+                        handelChange={this.handelChange}
+                        
+                        />:
+                          <Select 
                         value = {['Size','Small','Medium', 'Large']}
                         name= 'Size' 
                         className="size"
@@ -69,6 +86,9 @@ handleSubmit = (e)=>{
                         handelChange={this.handelChange}
                         
                         />
+                        
+                        }
+                      
                     </div>
                     <div className="col-2">
                         <span className="size-chart"> Size Chart</span>

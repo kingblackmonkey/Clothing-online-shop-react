@@ -6,7 +6,7 @@ const MiniCartBody = ({name,imageUrl, size, quantity, price})=>{
             <h3 className="mini-cart-body-title">{name} </h3>
             <div className="mini-cart-body-detail row no-gutters align-items-center">
                 <div className="col-3 p-3">
-                    <img className="img-fluid" src={imageUrl}/>
+                    <img alt="product" className="img-fluid" src={imageUrl}/>
                 </div>
                 <div className="col-9">
                     <p><strong>Color:</strong> Same As Picture</p>

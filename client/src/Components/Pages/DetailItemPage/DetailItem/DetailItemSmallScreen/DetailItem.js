@@ -1,6 +1,5 @@
 import React from 'react'
-import Select from '../../../../Select/Select' 
-import Button from '../../../../Button/Button'
+
 import './DetailItem.scss'
 import DetailItemFormBody from './DetailItemFormBody/DetailItemFormBody'
 import Description from '../../Description/Description'
@@ -32,7 +31,7 @@ export default class DetailItemSmallScreen extends React.Component{
          </div> 
            
 
-         <DetailItemFormBody  {...this.props.singleProduct}/> 
+         <DetailItemFormBody  {...this.props.singleProduct} category={this.props.category}/> 
 
 
 

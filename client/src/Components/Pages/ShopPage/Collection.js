@@ -4,41 +4,82 @@ import CollectionItem from "./CollectionItem"
 import Form from './Form/Form'
 import {filterProducts } from './manipulateData/manipulateData'
 
-const  Collection = ({products,category, routeName})=>{
 
 
-    return(
-      <div  >
-        <Form />
-        <div className="row" >
-              <div className="col-12 collection-header">
-                  <h2 style={{color:'#333', fontSize: '20px',fontWeight: '600'}} className="ml-5">{category}</h2>
+class Collection  extends React.Component{
+  state = {
+    loading: true
+  };
 
-              </div>
 
-              <div className="col-12">
-                 
-              </div>
-             
-
-        </div>
-    
-
-        <div className="row no-gutters">
-          {
-            products.map((item,i)=>{
-                return <CollectionItem key={i} route={routeName} {...item}/>
-            })
-          }
-        
-        </div>
-      </div>
-   
-    )
+  imagesLoaded = (parentNode)=> {
+    const imgElements = [...parentNode.querySelectorAll("img")];
+    for (let i = 0; i < imgElements.length; i += 1) {
+      const img = imgElements[i];
+      if (!img.complete) {
+        return false;
+      }
+    }
+    return true;
+  }
   
+  handleImageChange = () => {
+    this.setState(()=>(
+      {
+        loading: !this.imagesLoaded(this.galleryElement)
+      }
+    ));
+  }
 
-    
-}
+
+            render(){
+              
+                      return(
+                        <div  >
+                           {
+                               this.state.loading? <div> </div>:''
+                            }
+                         
+                          <Form />
+                          <div className="row" >
+                                <div className="col-12 collection-header">
+                                    <h2 style={{color:'#333', fontSize: '20px',fontWeight: '600'}} className="ml-5">{this.props.category}</h2>
+
+                                </div>
+
+                                <div className="col-12">
+                                  
+                                </div>
+                              
+
+                          </div>
+
+
+                          <div 
+                          className="row no-gutters"   
+                          ref={element => {
+                            this.galleryElement = element;
+                          }}
+                          >
+                           
+                            {
+                              
+                            this.props.products.map((item,i)=>{
+                                  return <CollectionItem 
+                                  key={i} route={this.props.routeName} {...item} 
+                                  handleImageChange = {this.handleImageChange}/>
+                              })
+                            }
+                          
+                          </div>
+                        </div>
+
+                      )
+                
+            }
+
+                
+  }
 
 const mapStateToProps = (state, ownProps)=>{
   // coppy to new arry for sort 

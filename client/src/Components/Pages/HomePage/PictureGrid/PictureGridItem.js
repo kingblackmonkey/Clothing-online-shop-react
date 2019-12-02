@@ -1,8 +1,9 @@
 import React from 'react'
 
-const PictureGridItem = ({children, className})=>{
+const PictureGridItem = ({children, className, imageSource})=>{
     return(
-        <div className={className}>
+        <div className={className}
+    >
              {children}
 
         </div>
@@ -10,3 +11,4 @@ const PictureGridItem = ({children, className})=>{
 }
 
 export default PictureGridItem
+

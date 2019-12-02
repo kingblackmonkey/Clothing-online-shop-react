@@ -3,10 +3,9 @@ import Select from '../../../../../Select/Select'
 import Button from '../../../../../Button/Button'
 import {connect} from 'react-redux'
 import {addOrderToBagActionThunk} from '../../../../../../reduxStore/actions/ordersInBag'
-import addUpOrders from '../../../../../../reduxStore/utilityFunctions/addUpOrders'
 import  {addedItemInBag, defaultAddedItemInBag} from '../../../../../../reduxStore/actions/itemAddedInbag'
 import {updateOrderForGuest, updateOrderForSignedInUserThunk } from '../../../../../../reduxStore/actions/updateOrderInbag'
-
+import {history} from '../../../../../../index'
 import './DetailItemFormBody.scss'
  class  DetailItemFormBody extends React.Component{
   
@@ -82,14 +81,15 @@ toggleSelectedSize = (size)=>{
    
   
     render(){
+ 
 
     return (
         
         <form className="detail-item-body" onSubmit={ this.props.modal?this.handleSubmitForModalUpdate :this.handleSubmit}>
-                <h3 className = "detail-item-price">${this.props.price}</h3>
+                <h3 className = "detail-item-price"><strong>${this.props.price}</strong></h3>
 
                 <div className="detail-item-color-text">
-                        color: Same As Picture
+                        Color: <strong>Same As Picture</strong>
                 </div>
 
                 <div className="row align-items-baseline detail-item-size-container no-gutters">
@@ -97,32 +97,62 @@ toggleSelectedSize = (size)=>{
                         <span className="detail-item-size-text">Size:</span>
                     </div>
                     <div className="col-8  col-lg-6 ">
+
+
+
+                        {    
+                        this.props.category === 'men_watch' || this.props.category === 'women_hand_bags'?
                         <ul className="detail-item-size-options row no-gutters ">
+
+                                <li className="detail-item-size-option col-6">
+                                    <span 
+                                        style={{width:'auto'}}
+                                        onClick={()=>{
+                                        this.toggleSelectedSize('All Size')
+                                            }} 
+                                        className = {this.state.selectedSize === "All Size"? 'active':''}
+                                    >All Size</span>
+                                 </li>
+              
+                   
+       
+          
+                     </ul>
+
+
+                       : 
+                        <ul className="detail-item-size-options row no-gutters ">
+                            
                             <li className="detail-item-size-option col-4">
-                                <span 
-                                onClick={()=>{
-                                        this.toggleSelectedSize('small')
-                                }} 
-                                className = {this.state.selectedSize === "small"? 'active':''}
-                                >S</span>
-                            </li>
-                            <li className="detail-item-size-option col-4 ">
-                                <span 
-                                className = {this.state.selectedSize === "medium"? 'active':''}
-                                onClick={()=>{
-                                   this.toggleSelectedSize('medium')
-                                }}
-                                >M</span>
-                            </li>
-                            <li className="detail-item-size-option col-4">
-                                <span 
-                                className = {this.state.selectedSize === "large"? 'active':''}
-                                onClick={()=>{
-                                    this.toggleSelectedSize('large')
-                                }}
-                                >L</span>
-                            </li>
-                        </ul>
+                           <span 
+                           onClick={()=>{
+                                   this.toggleSelectedSize('Small')
+                           }} 
+                           className = {this.state.selectedSize === "Small"? 'active':''}
+                           >S</span>
+                       </li>
+                       <li className="detail-item-size-option col-4 ">
+                           <span 
+                           className = {this.state.selectedSize === "Medium"? 'active':''}
+                           onClick={()=>{
+                              this.toggleSelectedSize('Medium')
+                           }}
+                           >M</span>
+                       </li>
+                       <li className="detail-item-size-option col-4">
+                           <span 
+                           className = {this.state.selectedSize === "Large"? 'active':''}
+                           onClick={()=>{
+                               this.toggleSelectedSize('Large')
+                           }}
+                           >L</span>
+                       </li>
+                       
+           
+              
+                         </ul>
+                        }
+                   
                     </div>           
             
                 </div>

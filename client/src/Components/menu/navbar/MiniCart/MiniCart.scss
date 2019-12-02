@@ -5,7 +5,7 @@
     width: 45rem;
     border: 1px solid #ccc;
     position: absolute;
-    top: 5rem;
+    top: 7rem;
     right:0;
     z-index: 999;
     background: #ffffff;
@@ -19,7 +19,7 @@
         content: '';
         position: absolute;
         top: -21px;
-        left: 92%;
+        left: 95%;
         z-index: 9999;
         width: 0;
         height: 0;
@@ -32,13 +32,16 @@
         visibility: hidden;
     
         opacity: 0;
+        @media (min-width: 992px){
+            left: 85%;
+      }
     }
 
     &::after{
         content: '';
         position: absolute;
         top: -14px;
-        left: 92%;
+        left: 95%;
         z-index: 9999;
         width: 0;
         height: 0;
@@ -51,6 +54,9 @@
         visibility: hidden;
      
         opacity: 0;
+        @media (min-width: 992px){
+            left: 85%;
+      }
     }
 
     &.active::before, &.active::after{

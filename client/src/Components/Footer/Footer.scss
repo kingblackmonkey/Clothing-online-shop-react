@@ -11,7 +11,7 @@
        text-transform: uppercase;
     letter-spacing: 2px;
     }
-    a{
+    span{
         color: #666;
     letter-spacing: .25px;
   
@@ -19,12 +19,60 @@
     font-weight: 400
     }
 
-    & .footer-item{
-        // padding-top: 30px;
-        //   padding-right: 0px;
-        //  padding-bottom:1.8rem;
-        //  padding-left: 18px;
+
+     & .input-text.email{
+        padding: 2px 0;
+        padding-left: 10px;
+        margin-right: 2px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
     }
+
+
+    & .icon-container {
+             width: 100%;
+            margin: 0;
+            padding-top: 18px;
+        & .social-icon{
+                width: 20px;
+            height: 18px;
+            margin-right:5px ;
+            font-size: 2rem;
+            padding: 1.7rem;
+            background-color: #000;
+            color: #fff;
+            border-radius: 50%;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+    }
+
+    & .btn-add-app {
+        margin: 30px 0;
+        & span{
+            display: block;
+          
+            width: 30%;
+
+            @media (min-width:768px){
+                margin-left: auto; 
+                 width: 48%;
+            } 
+        
+        }
+    }
+
+    & .copyRightText{
+        color: #666;
+        font-size: 12px;
+        text-align: center;
+    }
+    
 }
 
 

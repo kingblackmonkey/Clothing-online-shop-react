@@ -1,5 +1,5 @@
 import React from 'react'
-import Select from '../../../../Select/Select'
+
 import {connect} from 'react-redux'
 import {removeOrderForGuest, removeOrderForSignedInUserThunk} from '../../../../../reduxStore/actions/removeOrderInbag'
 import {openModalAction, closeModalAction} from '../../../../../reduxStore/actions/modal'
@@ -11,10 +11,7 @@ class CheckoutPageTopBody extends React.Component{
       
     }
 
-    handelChange= (e)=>{
-        const value = e.target.value;
-        
-    }
+  
 
     handleRemove=(idOrFirebaseId,size,id)=>{
        
@@ -41,7 +38,7 @@ class CheckoutPageTopBody extends React.Component{
                 <div className="row">
                        <div className="col-3">
                            <div className="checkout-top-body-picture">
-                               <img  className="img-fluid " src={this.props.imageUrl}></img>
+                               <img  className="img-fluid " src={this.props.imageUrl} alt="product"></img>
                            </div>  
                        </div>
         
@@ -51,7 +48,7 @@ class CheckoutPageTopBody extends React.Component{
         
                                            <div className="product-list-item">
                                                <div className="name pb-3">
-                                                       <a className="product-name " ><strong>{this.props.name}</strong></a>
+                                                       <span className="product-name " style={{letterSpacing:'.5px'}}><strong>{this.props.name}</strong></span>
                                            </div>
                                              
                                                <div className="sku pb-3">
@@ -60,7 +57,7 @@ class CheckoutPageTopBody extends React.Component{
                                                </div>
                                                <div className="attribute pb-3" data-attribute="size">
                                                    <span className="label">Size:</span>
-                                                   <span className="value">  {this.props.size} </span>
+                                                   <span className="value"> {this.props.size}  </span>
                                                </div>
                                                <div className="attribute pb-3 " data-attribute="color" style={{borderBottom:'1px solid rgb(51, 51, 51)'}}>
                                                    <span className="label">Color:</span>
@@ -79,10 +76,16 @@ class CheckoutPageTopBody extends React.Component{
                                             <div className="price-total ">
                                                 <span className="price-bold"><strong>${this.props.price}</strong></span>
                                             </div>
-                                          <span  
+                                            {
+                                            this.props.size === 'All Size'?'':    <span  
                                           onClick={this.handleOpenModal}
                                           style={{borderBottom:'1px solid #757575',color:'#757575', cursor: 'pointer',fontSize:'15px'}}
-                                          className="checkout-top-body-number-edit mr-3">Edit</span> 
+                                          className="checkout-top-body-number-edit mr-3">
+                                              Edit
+                                            </span> 
+                                            }
+                                      
+                                         
                                           < ModalForEdit   
                                           id={this.props.firebaseItemId? this.props.firebaseItemId:this.props.id  }
                                           imageUrl={this.props.imageUrl}

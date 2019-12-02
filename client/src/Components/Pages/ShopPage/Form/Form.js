@@ -29,7 +29,7 @@ render (){
         <form className="row">
             <label className="ml-auto">
                <h5 style={{display:'inline-block',fontWeight:'bold'}} className="pr-2">Sort By:</h5>
-                <select  className="px-3 py-2" style={{display:'inline-block',fontSize:'1.2rem', fontWeight:'bold',borderWidth:'2px'}} name={'sort-by'} value={this.state.sortbyPrice} onChange={this.handleChange}>
+                <select  className="px-3 py-2" style={{cursor:'pointer' ,display:'inline-block',fontSize:'1.2rem', fontWeight:'bold',borderWidth:'2px'}} name={'sort-by'} value={this.state.sortbyPrice} onChange={this.handleChange}>
                      <option value=''>Recommended</option>
                     <option value="low-to-high">Price Low-High</option>
                     <option value="high-to-low">Price High-Low</option>
