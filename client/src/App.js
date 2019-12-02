@@ -29,8 +29,9 @@ class App extends React.Component{
    return (
 
       <Router history = {history}>
-            <ReactNotification />
             <ScrollMemory />
+            <ReactNotification />
+         
                <Menu />           
                 
          <Switch>

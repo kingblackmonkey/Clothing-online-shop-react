@@ -45,8 +45,9 @@ state = {
          
                 </div>
                 <div  className="hidden-holder" style={{display:'none'}}>
-                       {this.props.pictures.map((item)=>(
+                       {this.props.pictures.map((item,i)=>(
                             <img 
+                            key={i}
                             alt="product"
                             src={item.img} 
                             onLoad={()=>{

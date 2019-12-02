@@ -114,7 +114,7 @@ history.push('/')
                     </div>
                 </div>
                 <div  style={{borderBottom: '1px #ccc solid', borderTop:'1px #ccc solid', paddingBottom:'5rem', paddingTop:'2rem'}}>
-                       {ordersInBag.map((item,i)=>  <CheckoutPageTopBody  key = {i} {...item}  /> )}
+                       {ordersInBag.map((item,i)=>  <CheckoutPageTopBody  key = {i} {...item}  /> ).reverse()}
                 </div>
              
                

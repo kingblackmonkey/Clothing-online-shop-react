@@ -181,8 +181,10 @@ class MiddleBar extends React.Component{
 }
 
 const mapStateToProps = ({ordersInBag,itemAddedInbag,odersInBagForSignedInUser,user})=>{
+ 
+
     return{
-        ordersInBag,
+        ordersInBag ,
         odersInBagForSignedInUser,
         itemAddedInbag,
         quantityShown: ordersInBag.length > 0 ? ordersInBag.reduce((acc, cur)=>{

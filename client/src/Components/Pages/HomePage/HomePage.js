@@ -1,8 +1,11 @@
 import React from 'react'
+import { useEffect } from "react";
+
 import './HomePage.scss'
 
 import  PictureGrid from './PictureGrid/PictureGrid'
 const HomePage = ()=>{
+
     const pictures= [
         {
             buttonText:'Shop Watch',
@@ -20,7 +23,11 @@ const HomePage = ()=>{
     ]
 
        
-       
+ 
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    });
        
     
     return (

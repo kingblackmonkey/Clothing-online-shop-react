@@ -36,20 +36,19 @@ class Collection  extends React.Component{
               
                       return(
                         <div  >
-                           {
-                               this.state.loading? <div> </div>:''
-                            }
+                           
                          
                           <Form />
                           <div className="row" >
+                        
                                 <div className="col-12 collection-header">
+                            
                                     <h2 style={{color:'#333', fontSize: '20px',fontWeight: '600'}} className="ml-5">{this.props.category}</h2>
 
                                 </div>
 
                                 <div className="col-12">
-                                  
-                                </div>
+                             </div>
                               
 
                           </div>
@@ -70,6 +69,10 @@ class Collection  extends React.Component{
                                   handleImageChange = {this.handleImageChange}/>
                               })
                             }
+                                 {
+                               this.state.loading? <div>...</div>:''
+                            }
+                              
                           
                           </div>
                         </div>

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import Button from '../../../Button/Button'
 import  MiniCartBody from './MinicartBody/MinicartBody'
-
+ import MinicartBodyWrapper from './MiniCartBodyWrapper/MinicartBodyWrapper'
 import './MiniCart.scss'
+
 const MiniCart = (
     {   className, ordersInBag, itemAddedInbag, 
         subTotal,  quantityShown, 
@@ -15,6 +16,9 @@ const MiniCart = (
     
     
     )=>{
+        
+
+
     return(
         <div 
         className={`mini-cart ${className} ${itemAddedInbag? 'active':''}`}
@@ -22,18 +26,11 @@ const MiniCart = (
         onMouseLeave = {mouseOut}
         >
                 <div className="mini-cart-header">
-                    <h3 className="px-3"><strong>ITEMS IN YOUR BAG</strong></h3>
+                    <h3 className="px-3 " style={{textAlign:'center'}}><strong>ITEMS ADDED IN YOUR BAG</strong></h3>
                 </div>
 
-                <div className="mini-cart-body-wrapper">
-
-               
-               {ordersInBag.map((item,i)=>{
-                   return <MiniCartBody key = {i} {...item}/>
-               })} 
-            
-                </div>
-
+              
+                <MinicartBodyWrapper ordersInBag = {ordersInBag} />
   
             
                 <div className="mini-cart-bottom">
@@ -43,7 +40,7 @@ const MiniCart = (
                      <span ><strong>${subTotal}</strong></span>
 
                     </h3>
-                    <h5>Recive Free Shipping</h5>
+                    <h5>Recieve Free Shipping</h5>
                     <Button 
                     
                     handleMouseEventForProCeedToCheckOut= {handleMouseEventForProCeedToCheckOut}

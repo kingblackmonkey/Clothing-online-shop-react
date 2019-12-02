@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import DetailItemSmallScreen from './DetailItem/DetailItemSmallScreen/DetailItem'
 import DetailItemBigScreen from './DetailItem/DetailItemBigScreen/DetailItem'
-
+import './DetailItemPage.scss'
 
 class  DetailItemPage extends React.Component{
   state = {
@@ -29,18 +29,19 @@ class  DetailItemPage extends React.Component{
 
     render(){
       return(
-        <div className="container ">
-         
+        <div className="container detail-item-container">
+        
             <div className="row justify-content-center no-gutters mt-5">
                 <div className="col-12 col-md-7 col-lg-6">
-                
-                     <div style={{height:"700px"}} className="px-3 ">
+                <h2 className="detail-item-name" style={{letterSpacing:'.5px'}}><strong>{this.props.singleProduct.name}</strong></h2>
+                     <div  className="px-3 detail-item-visual">
                      
                          <img  style={{width:'100%', height:'100%'}} className="img-fluid" src={this.props.singleProduct.imageUrl} alt="product"></img>
  
                      </div>
                 </div>
                 <div className="col-12 col-md-5  col-lg-4 px-5 px-md-0 ">
+                  
                     {
                         this.state.smallScreenSize?
                           <DetailItemSmallScreen singleProduct = {this.props.singleProduct} category={this.props.match.params.productName}/>

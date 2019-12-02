@@ -24,7 +24,8 @@ export default class DetailItemSmallScreen extends React.Component{
         <div className ="mt-5 mt-md-0 detail-item">
          
           <div className="detail-item-header-small-screen">
-               <h3>${this.props.singleProduct.price}</h3>
+          
+               <h3><strong>${this.props.singleProduct.price}</strong></h3>
             <div>
                 color: Same As Picture
             </div>

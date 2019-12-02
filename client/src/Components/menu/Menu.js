@@ -3,7 +3,7 @@ import NavBar from './navbar/NavBar'
 
 const Menu = ()=>{
     return (
-<div className= "menu">
+<div className= "menu fluid">
   <NavBar />
  
 </div>
