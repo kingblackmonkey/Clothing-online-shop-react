@@ -1,11 +1,11 @@
 .picture-grid-container{
     & .picture-grid-one {
-       
+      
             & .picture-grid-item{
                height: 40rem;
                position: relative;
                 overflow: hidden;
-                
+                visibility: hidden;
                 @media (min-width: 768px){
                     height: 60rem;
                 
@@ -14,9 +14,19 @@
               @media (min-width: 1200px){
                 height: 75rem;
             
-            }            
+            }  
+            
+           
+
+            &.show{
+                visibility: visible;
+            }
            
             }
+
+        
+                
+
     }
 
     & .picture-grid-two{

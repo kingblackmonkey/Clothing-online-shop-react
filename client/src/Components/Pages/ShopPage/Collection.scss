@@ -1,0 +1,10 @@
+.collection-section{
+
+
+   & .collection-body{
+       visibility: hidden;
+     &.visible{
+            visibility: visible;
+        }
+   } 
+}

@@ -4,7 +4,7 @@ import CollectionItem from "./CollectionItem"
 import Form from './Form/Form'
 import {filterProducts } from './manipulateData/manipulateData'
 
-
+import './Collection.scss'
 
 class Collection  extends React.Component{
   state = {
@@ -35,7 +35,7 @@ class Collection  extends React.Component{
             render(){
               
                       return(
-                        <div  >
+                        <div  className="collection-section">
                            
                          
                           <Form />
@@ -48,14 +48,15 @@ class Collection  extends React.Component{
                                 </div>
 
                                 <div className="col-12">
-                             </div>
+                               </div>
                               
 
                           </div>
 
 
                           <div 
-                          className="row no-gutters"   
+                         
+                          className={`row no-gutters collection-body  ${this.state.loading?'':'visible'}`}    
                           ref={element => {
                             this.galleryElement = element;
                           }}
@@ -69,10 +70,7 @@ class Collection  extends React.Component{
                                   handleImageChange = {this.handleImageChange}/>
                               })
                             }
-                                 {
-                               this.state.loading? <div>...</div>:''
-                            }
-                              
+                           
                           
                           </div>
                         </div>

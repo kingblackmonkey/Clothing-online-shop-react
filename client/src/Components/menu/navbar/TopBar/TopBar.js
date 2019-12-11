@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
-import './TopBar.scss'
+
 const TopBar = ()=>(
  
         <div className = 'top-bar '>
